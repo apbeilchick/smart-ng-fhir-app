@@ -11,7 +11,7 @@ function webpackEmptyAsyncContext(req) {
 	// Here Promise.resolve().then() is used instead of new Promise() to prevent
 	// uncaught exception popping up in devtools
 	return Promise.resolve().then(function() {
-		var e = new Error('Cannot find module "' + req + '".');
+		var e = new Error("Cannot find module '" + req + "'");
 		e.code = 'MODULE_NOT_FOUND';
 		throw e;
 	});
@@ -203,7 +203,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".side-nav-container {\r\n    position: absolute;\r\n    top: 60px;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n}\r\n\r\n.float-right {\r\n    float: right;\r\n}\r\n\r\n.card-no-data {\r\n    min-height: 300px;\r\n}\r\n\r\n.center {\r\n    margin: auto;\r\n}"
+module.exports = ".side-nav-container {\n    position: absolute;\n    top: 60px;\n    bottom: 0;\n    left: 0;\n    right: 0;\n}\n\n.float-right {\n    float: right;\n}\n\n.card-no-data {\n    min-height: 300px;\n}\n\n.center {\n    margin: auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQkFBa0I7SUFDbEIsU0FBUztJQUNULFNBQVM7SUFDVCxPQUFPO0lBQ1AsUUFBUTtBQUNaOztBQUVBO0lBQ0ksWUFBWTtBQUNoQjs7QUFFQTtJQUNJLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLFlBQVk7QUFDaEIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zaWRlLW5hdi1jb250YWluZXIge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDYwcHg7XG4gICAgYm90dG9tOiAwO1xuICAgIGxlZnQ6IDA7XG4gICAgcmlnaHQ6IDA7XG59XG5cbi5mbG9hdC1yaWdodCB7XG4gICAgZmxvYXQ6IHJpZ2h0O1xufVxuXG4uY2FyZC1uby1kYXRhIHtcbiAgICBtaW4taGVpZ2h0OiAzMDBweDtcbn1cblxuLmNlbnRlciB7XG4gICAgbWFyZ2luOiBhdXRvO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -214,7 +214,7 @@ module.exports = ".side-nav-container {\r\n    position: absolute;\r\n    top: 6
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <mat-toolbar color=\"primary\">\r\n    <mat-toolbar-row>\r\n      <button *ngIf=\"isLoggedIn$ | async\" mat-icon-button (click)=\"snav.toggle()\">\r\n        <mat-icon>menu</mat-icon>\r\n      </button>\r\n      <span>Sample SMART on FHIR Application</span>\r\n      <span class=\"spacer\"></span>\r\n      <app-access-token-timer></app-access-token-timer>\r\n      <span class=\"min-padding\">\r\n        <button mat-raised-button (click)=\"requestResponseLog.toggle();logsHidden = !logsHidden;\" *ngIf=\"logsHidden\">Show Request Response Logs</button>\r\n        <button mat-raised-button (click)=\"requestResponseLog.toggle();logsHidden = !logsHidden;\" *ngIf=\"!logsHidden\">Hide Request Response Logs</button>\r\n      </span>\r\n      <span class=\"min-padding\" *ngIf=\"isLoggedIn$ | async\">\r\n        <button mat-raised-button color=\"warn\" *ngIf=\"canSwitchPatient\" (click)=\"switchPatient();snav.toggle();\">Switch Patient</button>\r\n      </span>\r\n      <span class=\"min-padding\">\r\n        <button mat-raised-button color=\"warn\" *ngIf=\"isLoggedIn$ | async\" (click)=\"logout();snav.toggle();\">Signout</button>\r\n      </span>\r\n    </mat-toolbar-row>\r\n    <mat-toolbar-row *ngIf=\"isLoggedIn$ | async\">\r\n      <h4>Server: {{connectedServer}}</h4>\r\n    </mat-toolbar-row>\r\n  </mat-toolbar>\r\n  <mat-sidenav-container class=\"side-nav-container\">\r\n    <mat-sidenav #snav mode=\"side\" opened=\"false\">\r\n      <mat-nav-list *ngIf=\"isLoggedIn$ | async\">\r\n        <a routerLink=\"/conformance\" mat-list-item>Conformance</a>\r\n        <a routerLink=\"/state\" mat-list-item>State</a>\r\n        <a routerLink=\"/token\" mat-list-item>Access Token</a>\r\n        <a routerLink=\"/user-profile\" mat-list-item>User Profile</a>\r\n        <app-resources-menu></app-resources-menu>\r\n      </mat-nav-list>\r\n    </mat-sidenav>\r\n    <mat-sidenav #requestResponseLog opened=\"false\" mode=\"side\" position=\"end\">\r\n      <app-request-response-log></app-request-response-log>\r\n    </mat-sidenav>\r\n    <mat-sidenav-content>\r\n      <div>\r\n        <div class=\"container\">\r\n          <router-outlet></router-outlet>\r\n        </div>\r\n      </div>\r\n    </mat-sidenav-content>\r\n  </mat-sidenav-container>\r\n</div>"
+module.exports = "<div>\n  <mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      <button *ngIf=\"isLoggedIn$ | async\" mat-icon-button (click)=\"snav.toggle()\">\n        <mat-icon>menu</mat-icon>\n      </button>\n      <span>Sample SMART on FHIR Application</span>\n      <span class=\"spacer\"></span>\n      <app-access-token-timer></app-access-token-timer>\n      <span class=\"min-padding\">\n        <button mat-raised-button (click)=\"requestResponseLog.toggle();logsHidden = !logsHidden;\" *ngIf=\"logsHidden\">Show Request Response Logs</button>\n        <button mat-raised-button (click)=\"requestResponseLog.toggle();logsHidden = !logsHidden;\" *ngIf=\"!logsHidden\">Hide Request Response Logs</button>\n      </span>\n      <span class=\"min-padding\" *ngIf=\"isLoggedIn$ | async\">\n        <button mat-raised-button color=\"warn\" *ngIf=\"canSwitchPatient\" (click)=\"switchPatient();snav.toggle();\">Switch Patient</button>\n      </span>\n      <span class=\"min-padding\">\n        <button mat-raised-button color=\"warn\" *ngIf=\"isLoggedIn$ | async\" (click)=\"logout();snav.toggle();\">Signout</button>\n      </span>\n    </mat-toolbar-row>\n    <mat-toolbar-row *ngIf=\"isLoggedIn$ | async\">\n      <h4>Server: {{connectedServer}}</h4>\n    </mat-toolbar-row>\n  </mat-toolbar>\n  <mat-sidenav-container class=\"side-nav-container\">\n    <mat-sidenav #snav mode=\"side\" opened=\"false\">\n      <mat-nav-list *ngIf=\"isLoggedIn$ | async\">\n        <a routerLink=\"/conformance\" mat-list-item>Conformance</a>\n        <a routerLink=\"/state\" mat-list-item>State</a>\n        <a routerLink=\"/token\" mat-list-item>Access Token</a>\n        <a routerLink=\"/user-profile\" mat-list-item>User Profile</a>\n        <app-resources-menu></app-resources-menu>\n      </mat-nav-list>\n    </mat-sidenav>\n    <mat-sidenav #requestResponseLog opened=\"false\" mode=\"side\" position=\"end\">\n      <app-request-response-log></app-request-response-log>\n    </mat-sidenav>\n    <mat-sidenav-content>\n      <div>\n        <div class=\"container\">\n          <router-outlet></router-outlet>\n        </div>\n      </div>\n    </mat-sidenav-content>\n  </mat-sidenav-container>\n</div>"
 
 /***/ }),
 
@@ -436,7 +436,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY29tbW9uL2FjY2Vzcy10b2tlbi10aW1lci9hY2Nlc3MtdG9rZW4tdGltZXIuY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -447,7 +447,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<span *ngIf=\"timeLeft>0\">\r\n  Access Token: {{timeLeft}} s\r\n</span>\r\n<span *ngIf=\"(isLoggedIn$ | async) && (!timeLeft || timeLeft<=0)\">\r\n  Access token has expired.\r\n</span>\r\n<span *ngIf=\"isLoggedIn$ | async\" class=\"min-padding\">\r\n  <button mat-raised-button color=\"warn\" *ngIf=\"canRefresh\" (click)=\"refreshAccessToken()\">Refresh Access Token</button>\r\n</span>"
+module.exports = "<span *ngIf=\"timeLeft>0\">\n  Access Token: {{timeLeft}} s\n</span>\n<span *ngIf=\"(isLoggedIn$ | async) && (!timeLeft || timeLeft<=0)\">\n  Access token has expired.\n</span>\n<span *ngIf=\"isLoggedIn$ | async\" class=\"min-padding\">\n  <button mat-raised-button color=\"warn\" *ngIf=\"canRefresh\" (click)=\"refreshAccessToken()\">Refresh Access Token</button>\n</span>"
 
 /***/ }),
 
@@ -538,7 +538,7 @@ var AccessTokenTimerComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY29tbW9uL2Vycm9yLWRpYWxvZy9lcnJvci1kaWFsb2cuY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -549,7 +549,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div mat-dialog-content>\r\n  <app-object-viewer *ngIf=\"data\" title=\"Error\" [value]=\"data\" hideView=\"true\"></app-object-viewer>\r\n</div>\r\n<div mat-dialog-actions>\r\n  <button mat-raised-button  color=\"warn\" (click)=\"close()\">Close</button>\r\n</div>"
+module.exports = "<div mat-dialog-content>\n  <app-object-viewer *ngIf=\"data\" title=\"Error\" [value]=\"data\" hideView=\"true\"></app-object-viewer>\n</div>\n<div mat-dialog-actions>\n  <button mat-raised-button  color=\"warn\" (click)=\"close()\">Close</button>\n</div>"
 
 /***/ }),
 
@@ -651,7 +651,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY29tbW9uL29iamVjdC12aWV3ZXIvb2JqZWN0LXZpZXdlci5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -662,7 +662,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"mat-elevation-z8\">\r\n  <mat-card-title>\r\n    <div>{{title}}</div>\r\n  </mat-card-title>\r\n  <mat-card-content>\r\n    <mat-tab-group>\r\n      <mat-tab label=\"View\" *ngIf=\"!hideView\">\r\n        <ngx-json-viewer *ngIf=\"value\" [json]=\"value\"></ngx-json-viewer>\r\n      </mat-tab>\r\n      <mat-tab label=\"JSON\">\r\n        <ace-editor mode=\"text\" [text]=\"codeValue\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\r\n      </mat-tab>\r\n    </mat-tab-group>\r\n  </mat-card-content>\r\n</mat-card>"
+module.exports = "<mat-card class=\"mat-elevation-z8\">\n  <mat-card-title>\n    <div>{{title}}</div>\n  </mat-card-title>\n  <mat-card-content>\n    <mat-tab-group>\n      <mat-tab label=\"View\" *ngIf=\"!hideView\">\n        <ngx-json-viewer *ngIf=\"value\" [json]=\"value\"></ngx-json-viewer>\n      </mat-tab>\n      <mat-tab label=\"JSON\">\n        <ace-editor mode=\"text\" [text]=\"codeValue\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\n      </mat-tab>\n    </mat-tab-group>\n  </mat-card-content>\n</mat-card>"
 
 /***/ }),
 
@@ -741,7 +741,7 @@ var ObjectViewerComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY29tbW9uL3JlcXVlc3QtcmVzcG9uc2UtbG9nL3JlcXVlc3QtcmVzcG9uc2UtbG9nLmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -752,7 +752,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"min-padding\" style=\"float: right;\">\r\n  <button mat-raised-button color=\"warn\" (click)=\"clearLogs()\">Cleare Logs</button>\r\n</div>\r\n<mat-accordion>\r\n  <mat-expansion-panel expanded>\r\n    <mat-expansion-panel-header>\r\n      <mat-panel-title>\r\n        Request Response Log\r\n      </mat-panel-title>\r\n      <mat-panel-description>\r\n        Log of all the FHIR API requests made by this app.\r\n      </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n    <div>\r\n      <div *ngFor=\"let log of logs\">\r\n        <mat-accordion>\r\n          <mat-expansion-panel>\r\n            <mat-expansion-panel-header>\r\n              <mat-panel-title>\r\n                {{log.request.method}} {{log.response.status}} {{log.request.url}}\r\n              </mat-panel-title>\r\n            </mat-expansion-panel-header>\r\n            <div>\r\n              <div class=\"row\">\r\n                <div class=\"col-md-6\">\r\n                  <mat-tab-group>\r\n                    <mat-tab label=\"Body\">\r\n                      <ace-editor mode=\"text\" [text]=\"log.request.body\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\r\n                    </mat-tab>\r\n                    <mat-tab label=\"Headers\">\r\n                      <ace-editor mode=\"text\" [text]=\"log.request.headers\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\r\n                    </mat-tab>\r\n                  </mat-tab-group>\r\n                </div>\r\n                <div class=\"col-md-6\">\r\n                  <mat-tab-group>\r\n                    <mat-tab label=\"Body\">\r\n                      <ace-editor mode=\"text\" [text]=\"log.response.data\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\r\n                    </mat-tab>\r\n                    <mat-tab label=\"Headers\">\r\n                      <ace-editor mode=\"text\" [text]=\"log.response.headers\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\r\n                    </mat-tab>\r\n                  </mat-tab-group>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </mat-expansion-panel>\r\n        </mat-accordion>\r\n      </div>\r\n    </div>\r\n  </mat-expansion-panel>\r\n</mat-accordion>"
+module.exports = "<div class=\"min-padding\" style=\"float: right;\">\n  <button mat-raised-button color=\"warn\" (click)=\"clearLogs()\">Clear Logs</button>\n</div>\n<mat-accordion>\n  <mat-expansion-panel expanded>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Request Response Log\n      </mat-panel-title>\n      <mat-panel-description>\n        Log of all the FHIR API requests made by this app.\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n    <div>\n      <div *ngFor=\"let log of logs\">\n        <mat-accordion>\n          <mat-expansion-panel>\n            <mat-expansion-panel-header>\n              <mat-panel-title>\n                {{log.request.method}} {{log.response.status}} {{log.request.url}}\n              </mat-panel-title>\n            </mat-expansion-panel-header>\n            <div>\n              <div class=\"row\">\n                <div class=\"col-md-6\">\n                  <mat-tab-group>\n                    <mat-tab label=\"Body\">\n                      <ace-editor mode=\"text\" [text]=\"log.request.body\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\n                    </mat-tab>\n                    <mat-tab label=\"Headers\">\n                      <ace-editor mode=\"text\" [text]=\"log.request.headers\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\n                    </mat-tab>\n                  </mat-tab-group>\n                </div>\n                <div class=\"col-md-6\">\n                  <mat-tab-group>\n                    <mat-tab label=\"Body\">\n                      <ace-editor mode=\"text\" [text]=\"log.response.data\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\n                    </mat-tab>\n                    <mat-tab label=\"Headers\">\n                      <ace-editor mode=\"text\" [text]=\"log.response.headers\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\n                    </mat-tab>\n                  </mat-tab-group>\n                </div>\n              </div>\n            </div>\n          </mat-expansion-panel>\n        </mat-accordion>\n      </div>\n    </div>\n  </mat-expansion-panel>\n</mat-accordion>"
 
 /***/ }),
 
@@ -848,7 +848,7 @@ var RequestResponseLogComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY29tbW9uL3Jlc291cmNlcy1tZW51L3Jlc291cmNlcy1tZW51LmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -859,7 +859,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<a *ngFor=\"let resource of supportedResources\" routerLink=\"/resources/{{resource}}\" mat-list-item>{{resource}}</a>"
+module.exports = "<ng-container *ngIf=\"!showCCDSResourceMenuInstead\">\n    <a *ngFor=\"let resource of supportedResources\" \n    routerLink=\"/resources/{{resource}}\" mat-list-item>{{resource}}</a>\n</ng-container>\n\n<ng-container *ngIf=\"!!showCCDSResourceMenuInstead\">\n    <a *ngFor=\"let ccds of supportedCCDSTypes\"\n    [routerLink]=\"['/resources/', ccds.FhirResource]\" \n    fragment=\"{{ccds.CCDSType}}\" mat-list-item>{{ccds.CCDSType}}</a>\n</ng-container>\n"
 
 /***/ }),
 
@@ -877,6 +877,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_helper_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/helper.service */ "./src/app/services/helper.service.ts");
 /* harmony import */ var _services_smart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/smart.service */ "./src/app/services/smart.service.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var src_app_services_ccds_resource_helper_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/ccds-resource-helper.service */ "./src/app/services/ccds-resource-helper.service.ts");
+/* harmony import */ var src_environments_environment_prod__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/environments/environment.prod */ "./src/environments/environment.prod.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -890,22 +892,30 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * Component used to display the Side Navigation menu based on the Capability of the server and the user scopes in context.
  */
 var ResourcesMenuComponent = /** @class */ (function () {
-    function ResourcesMenuComponent(_zone, _helperService, _smartService) {
+    function ResourcesMenuComponent(_zone, _helperService, _smartService, _CCDSResourceHelperService) {
         this._zone = _zone;
         this._helperService = _helperService;
         this._smartService = _smartService;
+        this._CCDSResourceHelperService = _CCDSResourceHelperService;
         /**
          * List of FHIR resource types that supports read operation based on the user scopes and capability statement of the FHIR server.
          */
         this.supportedResources = [];
+        /**
+         * List of CCDS types that can be supported based on the FHIR resources supported.
+         */
+        this.supportedCCDSTypes = [];
         this._unsubscribe = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
     }
     ResourcesMenuComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.showCCDSResourceMenuInstead = src_environments_environment_prod__WEBPACK_IMPORTED_MODULE_5__["environment"].showCCDSResourceMenuInstead;
         this._smartService.getClient()
             .takeUntil(this._unsubscribe)
             .subscribe(function (smartClient) {
@@ -914,6 +924,7 @@ var ResourcesMenuComponent = /** @class */ (function () {
                 .subscribe(function (conformance) {
                 _this._zone.run(function () {
                     _this.supportedResources = _this._helperService.resourcesSupported(conformance, smartClient.tokenResponse.scope, 'read');
+                    _this.supportedCCDSTypes = _this._CCDSResourceHelperService.getSupportedCCDSResources(_this.supportedResources);
                 });
             });
         });
@@ -928,7 +939,7 @@ var ResourcesMenuComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./resources-menu.component.html */ "./src/app/components/common/resources-menu/resources-menu.component.html"),
             styles: [__webpack_require__(/*! ./resources-menu.component.css */ "./src/app/components/common/resources-menu/resources-menu.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], _services_helper_service__WEBPACK_IMPORTED_MODULE_1__["HelperService"], _services_smart_service__WEBPACK_IMPORTED_MODULE_2__["SmartService"]])
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], _services_helper_service__WEBPACK_IMPORTED_MODULE_1__["HelperService"], _services_smart_service__WEBPACK_IMPORTED_MODULE_2__["SmartService"], src_app_services_ccds_resource_helper_service__WEBPACK_IMPORTED_MODULE_4__["CCDSResourceHelperService"]])
     ], ResourcesMenuComponent);
     return ResourcesMenuComponent;
 }());
@@ -1018,7 +1029,7 @@ var SmartCommonModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbWlzYy1wYWdlcy9hY2Nlc3MtdG9rZW4vYWNjZXNzLXRva2VuLmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -1104,7 +1115,7 @@ var AccessTokenComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbWlzYy1wYWdlcy9jb25mb3JtYW5jZS9jb25mb3JtYW5jZS5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -1198,7 +1209,7 @@ var ConformanceComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n    min-width: 150px;\r\n    max-width: 500px;\r\n    width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n    width: 100%;\r\n}\r\n\r\n.row {\r\n    padding: 10px\r\n}"
+module.exports = ".example-form {\n    min-width: 150px;\n    max-width: 500px;\n    width: 100%;\n}\n\n.example-full-width {\n    width: 100%;\n}\n\n.row {\n    padding: 10px\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9taXNjLXBhZ2VzL2Nvbm5lY3QvY29ubmVjdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGdCQUFnQjtJQUNoQixXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxXQUFXO0FBQ2Y7O0FBRUE7SUFDSTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9taXNjLXBhZ2VzL2Nvbm5lY3QvY29ubmVjdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmV4YW1wbGUtZm9ybSB7XG4gICAgbWluLXdpZHRoOiAxNTBweDtcbiAgICBtYXgtd2lkdGg6IDUwMHB4O1xuICAgIHdpZHRoOiAxMDAlO1xufVxuXG4uZXhhbXBsZS1mdWxsLXdpZHRoIHtcbiAgICB3aWR0aDogMTAwJTtcbn1cblxuLnJvdyB7XG4gICAgcGFkZGluZzogMTBweFxufSJdfQ== */"
 
 /***/ }),
 
@@ -1209,7 +1220,7 @@ module.exports = ".example-form {\r\n    min-width: 150px;\r\n    max-width: 500
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"mat-elevation-z8\">\r\n  <mat-card-content>\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        <mat-card class=\"mat-elevation-z8\">\r\n          <mat-card-title>\r\n            Client\r\n          </mat-card-title>\r\n          <mat-card-content>\r\n            <p>Name: {{app.name}}</p>\r\n            <p>Unique Name: {{app.uniqueName}}</p>\r\n            <p>Client_Id: {{app.clientId}}</p>\r\n            <p>Redirect Uri: {{app.redirectUri}}</p>\r\n          </mat-card-content>\r\n        </mat-card>\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        <mat-card class=\"mat-elevation-z8\">\r\n          <mat-card-title>\r\n            Server\r\n          </mat-card-title>\r\n          <mat-card-content>\r\n            <p>Name: {{server.name}}</p>\r\n            <p>Unique Name: {{server.uniqueName}}</p>\r\n            <p>Base Url: {{server.baseUrl}}</p>\r\n            <div *ngIf=\"server.information && server.information.patientStandalone\">\r\n              <p>Information</p>\r\n              <ol>\r\n                <li *ngFor=\"let information of server.information.patientStandalone\">{{information}}</li>\r\n              </ol>\r\n            </div>\r\n          </mat-card-content>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <div>\r\n      <p>Select the Scopes</p>\r\n      <button mat-line mat-button (click)=\"toggleAll()\">Toggle All</button>\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-xs-12\">\r\n              <div class=\"form-group\">\r\n                <div class=\"checkbox\" *ngFor=\"let scope of scopes\">\r\n                  <div class=\"col-xs-4\">\r\n                    <mat-checkbox name=\"scopes\" value=\"{{scope.value}}\" [(ngModel)]=\"scope.checked\"> {{scope.value}}</mat-checkbox>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div *ngIf=\"server.supportsAccessTypes\">\r\n        <p>Access Type</p>\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12\">\r\n            <mat-radio-group [(ngModel)]=\"accessType\">\r\n              <div class=\"col-xs-2\">\r\n                <mat-radio-button value=\"online_access\">Online Access</mat-radio-button>\r\n              </div>\r\n              <div class=\"col-xs-2\">\r\n                <mat-radio-button value=\"offline_access\">Offline Access</mat-radio-button>\r\n              </div>\r\n            </mat-radio-group>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n          <div class=\"example-form\">\r\n            <mat-form-field class=\"example-full-width\">\r\n              <input matInput placeholder=\"Additional Scopes (Comma Seperated)\" [(ngModel)]=\"additionalScopes\">\r\n            </mat-form-field>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button mat-raised-button color=\"primary\" (click)=\"connect();\">CONNECT</button>\r\n    <button mat-raised-button color=\"warn\" routerLink=\"/index\">CANCEL</button>\r\n  </mat-card-actions>\r\n</mat-card>"
+module.exports = "<mat-card class=\"mat-elevation-z8\">\n  <mat-card-content>\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <mat-card class=\"mat-elevation-z8\">\n          <mat-card-title>\n            Client\n          </mat-card-title>\n          <mat-card-content>\n            <p>Name: {{app.name}}</p>\n            <p>Unique Name: {{app.uniqueName}}</p>\n            <p>Client_Id: {{app.clientId}}</p>\n            <p>Redirect Uri: {{app.redirectUri}}</p>\n          </mat-card-content>\n        </mat-card>\n      </div>\n      <div class=\"col-md-6\">\n        <mat-card class=\"mat-elevation-z8\">\n          <mat-card-title>\n            Server\n          </mat-card-title>\n          <mat-card-content>\n            <p>Name: {{server.name}}</p>\n            <p>Unique Name: {{server.uniqueName}}</p>\n            <p>Base Url: {{server.baseUrl}}</p>\n            <div *ngIf=\"server.information && server.information.patientStandalone\">\n              <p>Information</p>\n              <ol>\n                <li *ngFor=\"let information of server.information.patientStandalone\">{{information}}</li>\n              </ol>\n            </div>\n          </mat-card-content>\n        </mat-card>\n      </div>\n    </div>\n    <div>\n      <p>Select the Scopes</p>\n      <button mat-line mat-button (click)=\"toggleAll()\">Toggle All</button>\n      <div class=\"row\">\n        <div class=\"col-xs-12\">\n          <div class=\"row\">\n            <div class=\"col-xs-12\">\n              <div class=\"form-group\">\n                <div class=\"checkbox\" *ngFor=\"let scope of scopes\">\n                  <div class=\"col-xs-4\">\n                    <mat-checkbox name=\"scopes\" value=\"{{scope.value}}\" [(ngModel)]=\"scope.checked\"> {{scope.value}}</mat-checkbox>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div *ngIf=\"server.supportsAccessTypes\">\n        <p>Access Type</p>\n        <div class=\"row\">\n          <div class=\"col-xs-12\">\n            <mat-radio-group [(ngModel)]=\"accessType\">\n              <div class=\"col-xs-2\">\n                <mat-radio-button value=\"online_access\">Online Access</mat-radio-button>\n              </div>\n              <div class=\"col-xs-2\">\n                <mat-radio-button value=\"offline_access\">Offline Access</mat-radio-button>\n              </div>\n            </mat-radio-group>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <div class=\"example-form\">\n            <mat-form-field class=\"example-full-width\">\n              <input matInput placeholder=\"Additional Scopes (Comma Seperated)\" [(ngModel)]=\"additionalScopes\">\n            </mat-form-field>\n          </div>\n        </div>\n      </div>\n    </div>\n  </mat-card-content>\n  <mat-card-actions>\n    <button mat-raised-button color=\"primary\" (click)=\"connect();\">CONNECT</button>\n    <button mat-raised-button color=\"warn\" routerLink=\"/index\">CANCEL</button>\n  </mat-card-actions>\n</mat-card>"
 
 /***/ }),
 
@@ -1393,7 +1404,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbWlzYy1wYWdlcy9pbmRleC9pbmRleC5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -1404,7 +1415,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"Standalone - Patient Apps\">\r\n    <mat-card class=\"mat-elevation-z8\">\r\n      <mat-card-content>\r\n        <div>\r\n          <mat-list role=\"list\">\r\n            <mat-list-item role=\"listitem\" *ngFor=\"let app of standalonePatientApps\">\r\n              <button mat-raised-button color=\"primary\" (click)=\"connect(app.uniqueName);\">{{app.name}}</button>\r\n            </mat-list-item>\r\n          </mat-list>\r\n        </div>\r\n      </mat-card-content>\r\n    </mat-card>\r\n  </mat-tab>\r\n  <mat-tab label=\"Launch from EHR - Provider Apps\">\r\n    <mat-card class=\"mat-elevation-z8\">\r\n      <mat-card-content>\r\n        <div>\r\n          <mat-card *ngFor=\"let app of ehrLaunchApps\">\r\n            <mat-card-title>\r\n              <div>{{app.name}}</div>\r\n            </mat-card-title>\r\n            <mat-card-content>\r\n              <div>\r\n                <h4>FHIR Server: {{server(app.server).baseUrl}}</h4>\r\n                <p>Client_Id: {{app.clientId}}</p>\r\n                <p>Redirect Uri: {{app.redirectUri}}</p>\r\n                <p>Launch Url: {{app.launchUrl}}</p>\r\n                <div *ngIf=\"server(app.server).information && server(app.server).information.ehrLaunch\">\r\n                  <p>Information</p>\r\n                  <ol>\r\n                    <li *ngFor=\"let information of  server(app.server).information.ehrLaunch\">{{information}}</li>\r\n                  </ol>\r\n                </div>\r\n              </div>\r\n            </mat-card-content>\r\n          </mat-card>\r\n        </div>\r\n      </mat-card-content>\r\n    </mat-card>\r\n  </mat-tab>\r\n</mat-tab-group>"
+module.exports = "<mat-tab-group>\n  <mat-tab label=\"Standalone - Patient Apps\">\n    <mat-card class=\"mat-elevation-z8\">\n      <mat-card-content>\n        <div>\n          <mat-list role=\"list\">\n            <mat-list-item role=\"listitem\" *ngFor=\"let app of standalonePatientApps\">\n              <button mat-raised-button color=\"primary\" (click)=\"connect(app.uniqueName);\">{{app.name}}</button>\n            </mat-list-item>\n          </mat-list>\n        </div>\n      </mat-card-content>\n    </mat-card>\n  </mat-tab>\n  <mat-tab label=\"Launch from EHR - Provider Apps\">\n    <mat-card class=\"mat-elevation-z8\">\n      <mat-card-content>\n        <div>\n          <mat-card *ngFor=\"let app of ehrLaunchApps\">\n            <mat-card-title>\n              <div>{{app.name}}</div>\n            </mat-card-title>\n            <mat-card-content>\n              <div>\n                <h4>FHIR Server: {{server(app.server).baseUrl}}</h4>\n                <p>Client_Id: {{app.clientId}}</p>\n                <p>Redirect Uri: {{app.redirectUri}}</p>\n                <p>Launch Url: {{app.launchUrl}}</p>\n                <div *ngIf=\"server(app.server).information && server(app.server).information.ehrLaunch\">\n                  <p>Information</p>\n                  <ol>\n                    <li *ngFor=\"let information of  server(app.server).information.ehrLaunch\">{{information}}</li>\n                  </ol>\n                </div>\n              </div>\n            </mat-card-content>\n          </mat-card>\n        </div>\n      </mat-card-content>\n    </mat-card>\n  </mat-tab>\n</mat-tab-group>"
 
 /***/ }),
 
@@ -1510,7 +1521,7 @@ var IndexComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbWlzYy1wYWdlcy9sYXVuY2gvbGF1bmNoLmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -1521,7 +1532,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  The SMART on FHIR App has been launched from EMR......\r\n</p>\r\n"
+module.exports = "<p>\n  The SMART on FHIR App has been launched from EMR......\n</p>\n"
 
 /***/ }),
 
@@ -1772,7 +1783,7 @@ var MiscPagesModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".wrapper {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    border-width: 0px;\r\n    display: table;\r\n    width: 100%;\r\n}\r\n\r\n.inner {\r\n    text-align: center;\r\n    height: 300px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n}"
+module.exports = ".wrapper {\n    margin: 0px;\n    padding: 0px;\n    border-width: 0px;\n    display: table;\n    width: 100%;\n}\n\n.inner {\n    text-align: center;\n    height: 300px;\n    display: table-cell;\n    vertical-align: middle;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9taXNjLXBhZ2VzL3JlZGlyZWN0L3JlZGlyZWN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0lBQ1gsWUFBWTtJQUNaLGlCQUFpQjtJQUNqQixjQUFjO0lBQ2QsV0FBVztBQUNmOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsc0JBQXNCO0FBQzFCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9taXNjLXBhZ2VzL3JlZGlyZWN0L3JlZGlyZWN0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud3JhcHBlciB7XG4gICAgbWFyZ2luOiAwcHg7XG4gICAgcGFkZGluZzogMHB4O1xuICAgIGJvcmRlci13aWR0aDogMHB4O1xuICAgIGRpc3BsYXk6IHRhYmxlO1xuICAgIHdpZHRoOiAxMDAlO1xufVxuXG4uaW5uZXIge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBoZWlnaHQ6IDMwMHB4O1xuICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbn0iXX0= */"
 
 /***/ }),
 
@@ -1783,7 +1794,7 @@ module.exports = ".wrapper {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    bor
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"wrapper\">\r\n    <div class=\"inner\">\r\n      <button mat-raised-button color=\"warn\" routerLink=\"/index\">RECONNECT</button>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"row\">\n  <div class=\"wrapper\">\n    <div class=\"inner\">\n      <button mat-raised-button color=\"warn\" routerLink=\"/index\">RECONNECT</button>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1863,7 +1874,7 @@ var RedirectComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbWlzYy1wYWdlcy9zdGF0ZS9zdGF0ZS5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -1951,7 +1962,7 @@ var StateComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbWlzYy1wYWdlcy91c2VyLXByb2ZpbGUvdXNlci1wcm9maWxlLmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -2044,7 +2055,7 @@ var UserProfileComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL2VkaXQtcmVzb3VyY2UvZWRpdC1yZXNvdXJjZS5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -2055,7 +2066,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-progress-bar *ngIf=\"isLoading\" mode=\"indeterminate\"></mat-progress-bar>\r\n<mat-card class=\"mat-elevation-z8\">\r\n  <mat-card-title>\r\n    <div class=\"row\">\r\n      <span>{{resourceType}} ID: {{id}}</span>\r\n      <span style=\"float: right\">\r\n        <button color=\"warn\" mat-raised-button *ngIf=\"canDelete\" (click)=\"delete()\">Delete</button>\r\n      </span>\r\n    </div>\r\n  </mat-card-title>\r\n  <mat-card-content>\r\n    <div *ngIf=\"!resourceResponse\">\r\n      <mat-form-field>\r\n        <mat-select placeholder=\"Samples\" (selectionChange)=\"sampleSelected($event)\">\r\n          <mat-option *ngFor=\"let sample of samples\" [value]=\"sample.id\">\r\n            {{sample.name}}\r\n          </mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    </div>\r\n    <div>\r\n      <mat-tab-group [selectedIndex]=\"selectedTabIndex\">\r\n        <mat-tab *ngIf=\"resource\" label=\"JSON\">\r\n          <ace-editor mode=\"text\" [(text)]=\"code\" style=\"height:500px;\" [theme]=\"'eclipse'\" [autoUpdateContent]=\"true\"></ace-editor>\r\n        </mat-tab>\r\n        <mat-tab *ngIf=\"resource\" label=\"View\">\r\n          <ngx-json-viewer *ngIf=\"resource\" [json]=\"resource\"></ngx-json-viewer>\r\n        </mat-tab>\r\n        <mat-tab *ngIf=\"resourceRequest || resourceResponse\" label=\"Request-Response\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-6\">\r\n              <h4>Request</h4>\r\n              <ace-editor mode=\"text\" [text]=\"codeResourceRequest\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <h4>Response</h4>\r\n              <ace-editor mode=\"text\" [text]=\"codeResourceResponse\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\r\n            </div>\r\n          </div>\r\n        </mat-tab>\r\n        <mat-tab *ngIf=\"error\" label=\"Error\">\r\n          <ace-editor mode=\"text\" *ngIf=\"error\" [text]=\"codeError\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\r\n        </mat-tab>\r\n      </mat-tab-group>\r\n    </div>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button mat-raised-button color=\"primary\" *ngIf=\"((!error && canUpdate && !resourceResponse) || (error && id==='new')) && !invalidJson\"\r\n      (click)=\"save()\">SAVE</button>\r\n    <button mat-raised-button color=\"warn\" routerLink=\"/resources/{{resourceType}}\">CANCEL</button>\r\n  </mat-card-actions>\r\n</mat-card>"
+module.exports = "<mat-progress-bar *ngIf=\"isLoading\" mode=\"indeterminate\"></mat-progress-bar>\n<mat-card class=\"mat-elevation-z8\">\n  <mat-card-title>\n    <div class=\"row\">\n      <span>{{resourceType}} ID: {{id}}</span>\n      <span style=\"float: right\">\n        <button color=\"warn\" mat-raised-button *ngIf=\"canDelete\" (click)=\"delete()\">Delete</button>\n      </span>\n    </div>\n  </mat-card-title>\n  <mat-card-content>\n    <div *ngIf=\"!resourceResponse\">\n      <mat-form-field>\n        <mat-select placeholder=\"Samples\" (selectionChange)=\"sampleSelected($event)\">\n          <mat-option *ngFor=\"let sample of samples\" [value]=\"sample.id\">\n            {{sample.name}}\n          </mat-option>\n        </mat-select>\n      </mat-form-field>\n    </div>\n    <div>\n      <mat-tab-group [selectedIndex]=\"selectedTabIndex\">\n        <mat-tab *ngIf=\"resource\" label=\"JSON\">\n          <ace-editor mode=\"text\" [(text)]=\"code\" style=\"height:500px;\" [theme]=\"'eclipse'\" [autoUpdateContent]=\"true\"></ace-editor>\n        </mat-tab>\n        <mat-tab *ngIf=\"resource\" label=\"View\">\n          <ngx-json-viewer *ngIf=\"resource\" [json]=\"resource\"></ngx-json-viewer>\n        </mat-tab>\n        <mat-tab *ngIf=\"resourceRequest || resourceResponse\" label=\"Request-Response\">\n          <div class=\"row\">\n            <div class=\"col-md-6\">\n              <h4>Request</h4>\n              <ace-editor mode=\"text\" [text]=\"codeResourceRequest\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\n            </div>\n            <div class=\"col-md-6\">\n              <h4>Response</h4>\n              <ace-editor mode=\"text\" [text]=\"codeResourceResponse\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\n            </div>\n          </div>\n        </mat-tab>\n        <mat-tab *ngIf=\"error\" label=\"Error\">\n          <ace-editor mode=\"text\" *ngIf=\"error\" [text]=\"codeError\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\n        </mat-tab>\n      </mat-tab-group>\n    </div>\n  </mat-card-content>\n  <mat-card-actions>\n    <button mat-raised-button color=\"primary\" *ngIf=\"((!error && canUpdate && !resourceResponse) || (error && id==='new')) && !invalidJson\"\n      (click)=\"save()\">SAVE</button>\n    <button mat-raised-button color=\"warn\" routerLink=\"/resources/{{resourceType}}\">CANCEL</button>\n  </mat-card-actions>\n</mat-card>"
 
 /***/ }),
 
@@ -2172,8 +2183,9 @@ var EditResourceComponent = /** @class */ (function () {
     EditResourceComponent.prototype._setResource = function (smartClient) {
         var _this = this;
         this.isLoading = true;
+        // Have to append patient details as a query param since it breaks otherwise.
         var readParams = {
-            id: this.id,
+            id: this.id + '?patient=' + smartClient.patient.id,
             type: this.resourceType
         };
         // Makes use of the SMART on FHIR JS Client read api method
@@ -2395,7 +2407,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL3BhdGllbnQvcGF0aWVudC5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -2406,7 +2418,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-object-viewer title=\"Patient\" [value]=\"patient\"></app-object-viewer>\r\n<app-object-viewer *ngIf=\"error\" title=\"Error\" [value]=\"error\" hideView=\"true\"></app-object-viewer>"
+module.exports = "<app-object-viewer title=\"Patient\" [value]=\"patient\"></app-object-viewer>\n<app-object-viewer *ngIf=\"error\" title=\"Error\" [value]=\"error\" hideView=\"true\"></app-object-viewer>"
 
 /***/ }),
 
@@ -2545,7 +2557,7 @@ var ResourcesRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL3Jlc291cmNlcy10YWJsZS1jb250YWluZXIvcmVzb3VyY2VzLXRhYmxlLWNvbnRhaW5lci5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -2556,7 +2568,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-progress-bar *ngIf=\"isLoading\" mode=\"indeterminate\"></mat-progress-bar>\r\n<mat-card class=\"mat-elevation-z8\">\r\n  <mat-card-title>\r\n    <div class=\"row\">\r\n      <div class=\"col-md-2 col-xs-1\">\r\n        <span>{{resourceType}}</span>\r\n      </div>\r\n      <div class=\"col-xs-3 col-md-9\">\r\n      </div>\r\n      <button *ngIf=\"canCreate\" mat-raised-button color=\"primary\" routerLink=\"/resources/{{resourceType}}/new\">Add</button>\r\n    </div>\r\n  </mat-card-title>\r\n  <mat-card-content>\r\n    <mat-accordion>\r\n      <mat-expansion-panel>\r\n        <mat-expansion-panel-header>\r\n          <mat-panel-title>\r\n            Filter\r\n          </mat-panel-title>\r\n          <mat-panel-description>\r\n            Specify the filter as JSON [\r\n            <a href=\"https://github.com/FHIR/fhir.js/blob/master/README.md#search\">Reference</a>]\r\n          </mat-panel-description>\r\n        </mat-expansion-panel-header>\r\n        <div class=\"min-padding\">\r\n          Search Parameters Supported\r\n          <mat-list role=\"list\">\r\n            <mat-list-item role=\"listitem\" *ngFor=\"let param of searchParams\" matTooltip=\"{{param.documentation}}\">\r\n              <h4 mat-line>{{param.name}}</h4>\r\n              <p mat-line>{{param.type}}</p>\r\n              <div>{{param.documentation}}</div>\r\n            </mat-list-item>\r\n          </mat-list>\r\n        </div>\r\n        <ace-editor mode=\"text\" [(text)]=\"queryCode\" style=\"height:100px;\" [theme]=\"'eclipse'\"></ace-editor>\r\n        <div class=\"min-padding\">\r\n          <span class=\"min-padding\">\r\n            <button mat-raised-button color=\"primary\" (click)=\"applyFilter()\" *ngIf=\"!invalidJson\">Apply</button>\r\n          </span>\r\n          <button mat-raised-button color=\"warn\" (click)=\"reset()\">Reset</button>\r\n        </div>\r\n      </mat-expansion-panel>\r\n    </mat-accordion>\r\n    <app-resources-table *ngIf=\"!error\" [bundle]=\"resources\" [resourceType]=\"resourceType\"></app-resources-table>\r\n  </mat-card-content>\r\n</mat-card>\r\n<app-object-viewer *ngIf=\"error\" title=\"Error\" [value]=\"error\" hideView=\"true\"></app-object-viewer>"
+module.exports = "<mat-progress-bar *ngIf=\"isLoading\" mode=\"indeterminate\"></mat-progress-bar>\n<mat-card class=\"mat-elevation-z8\">\n  <mat-card-title>\n    <div class=\"row\">\n      <div class=\"col-md-2 col-xs-1\">\n        <span>{{resourceType}}</span>\n      </div>\n      <div class=\"col-xs-3 col-md-9\">\n      </div>\n      <button *ngIf=\"canCreate\" mat-raised-button color=\"primary\" routerLink=\"/resources/{{resourceType}}/new\">Add</button>\n    </div>\n  </mat-card-title>\n  <mat-card-content>\n    <mat-accordion>\n      <mat-expansion-panel>\n        <mat-expansion-panel-header>\n          <mat-panel-title>\n            Filter\n          </mat-panel-title>\n          <mat-panel-description>\n            Specify the filter as JSON [\n            <a href=\"https://github.com/FHIR/fhir.js/blob/master/README.md#search\">Reference</a>]\n          </mat-panel-description>\n        </mat-expansion-panel-header>\n        <div class=\"min-padding\">\n          Search Parameters Supported\n          <mat-list role=\"list\">\n            <mat-list-item role=\"listitem\" *ngFor=\"let param of searchParams\" matTooltip=\"{{param.documentation}}\">\n              <h4 mat-line>{{param.name}}</h4>\n              <p mat-line>{{param.type}}</p>\n              <div>{{param.documentation}}</div>\n            </mat-list-item>\n          </mat-list>\n        </div>\n        <ace-editor mode=\"text\" [(text)]=\"queryCode\" style=\"height:100px;\" [theme]=\"'eclipse'\"></ace-editor>\n        <div class=\"min-padding\">\n          <div class=\"min-padding\">\n            <mat-tab-group animationDuration=\"0ms\" [selectedIndex]=\"0\" (selectedTabChange)=\"OnDateTabChange($event)\" >\n              <mat-tab label=\"Specific-Date\">\n                <input type=\"date\" #specificDate name=\"specificDate\">\n              </mat-tab>\n              <mat-tab label=\"Date-Range\">\n                <input type=\"date\" #startdate name=\"startdate\">\n                <input type=\"date\" #enddate name=\"enddate\">\n              </mat-tab>\n            </mat-tab-group>\n          </div>\n          <span class=\"min-padding\">\n            <button mat-raised-button color=\"primary\" (click)=\"applyFilter(specificDate.value, startdate.value, enddate.value)\" *ngIf=\"!invalidJson\">Apply</button>\n          </span>\n          <button mat-raised-button color=\"warn\" (click)=\"reset()\">Reset</button>\n        </div>\n      </mat-expansion-panel>\n    </mat-accordion>\n    <app-resources-table *ngIf=\"!error\" [bundle]=\"resources\" [resourceType]=\"resourceType\"></app-resources-table>\n  </mat-card-content>\n</mat-card>\n<app-object-viewer *ngIf=\"error\" title=\"Error\" [value]=\"error\" hideView=\"true\"></app-object-viewer>"
 
 /***/ }),
 
@@ -2575,6 +2587,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_helper_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/helper.service */ "./src/app/services/helper.service.ts");
 /* harmony import */ var _services_smart_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/smart.service */ "./src/app/services/smart.service.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var src_app_services_ccds_resource_helper_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/ccds-resource-helper.service */ "./src/app/services/ccds-resource-helper.service.ts");
+/* harmony import */ var src_environments_environment_prod__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/environments/environment.prod */ "./src/environments/environment.prod.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2589,18 +2603,22 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * Component which fetches the FHIR resources based on the route parameter FHIR resource type
  * Option to specify the query object
  * Filter lists all the Search parameters supported by the FHIR server for this resource type
  */
 var ResourcesTableContainerComponent = /** @class */ (function () {
-    function ResourcesTableContainerComponent(_helperService, _route, _zone, _smartService) {
+    function ResourcesTableContainerComponent(_helperService, _route, _zone, _smartService, _CCDSResourceHelperService) {
         this._helperService = _helperService;
         this._route = _route;
         this._zone = _zone;
         this._smartService = _smartService;
+        this._CCDSResourceHelperService = _CCDSResourceHelperService;
         this._unsubscribe = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        this._lastUpdatedParam = '_lastUpdated';
     }
     /**
      * List the Supported Search parameters in the filter and performs the search based on the FHIR Resource type
@@ -2610,6 +2628,8 @@ var ResourcesTableContainerComponent = /** @class */ (function () {
         var _this = this;
         this._route.params.subscribe(function (val) {
             _this.resourceType = _this._route.snapshot.paramMap.get('resourceType');
+            _this.ccdsResourceType = _this._CCDSResourceHelperService.getCCDSResourceFromName(_this._route.snapshot.fragment);
+            console.log(_this.ccdsResourceType);
             _this._smartService.getClient()
                 .takeUntil(_this._unsubscribe)
                 .subscribe(function (smartClient) {
@@ -2641,14 +2661,25 @@ var ResourcesTableContainerComponent = /** @class */ (function () {
         this.query = {
             patient: smartClient.patient.id
         };
-        this._search(smartClient);
+        this._search(smartClient, null, null, null);
     };
     /**
      * Perform the FHIR API Search call based on the resource type and the query object set via the filter
      * @param smartClient Initialized SMART Client
+     * @param startDate Filter start date
+     * @param endDate Filter end date
      */
-    ResourcesTableContainerComponent.prototype._search = function (smartClient) {
+    ResourcesTableContainerComponent.prototype._search = function (smartClient, specificDate, startDate, endDate) {
         var _this = this;
+        var dateParamToUse = this._getDateParamToUse();
+        this._setDateParam(dateParamToUse, specificDate, startDate, endDate);
+        if (!!src_environments_environment_prod__WEBPACK_IMPORTED_MODULE_6__["environment"].showCCDSResourceMenuInstead) {
+            if (!this._helperService.hasIntersectingKeys(this.query, this.ccdsResourceType.SearchQueryParameters)) {
+                // Adding a check for intersecting keys so that a user is able
+                // to modify query parameters that are defined in SearchQueryParameters.
+                this.query = Object.assign(this.query, this.ccdsResourceType.SearchQueryParameters);
+            }
+        }
         console.log(this.query);
         this.isLoading = true;
         var searchParams = {
@@ -2660,6 +2691,12 @@ var ResourcesTableContainerComponent = /** @class */ (function () {
             _this._zone.run(function () {
                 _this.isLoading = false;
                 _this.resources = response.data;
+                if (!!src_environments_environment_prod__WEBPACK_IMPORTED_MODULE_6__["environment"].showCCDSResourceMenuInstead && !!response.data && !!response.data.total) {
+                    var responseDataCopy = _this._helperService.clone(response.data);
+                    // filter the results
+                    responseDataCopy.entry = responseDataCopy.entry.filter(_this.ccdsResourceType.SearchSetFilter);
+                    _this.resources = responseDataCopy;
+                }
                 _this.error = null;
             });
         }, function (error) {
@@ -2670,14 +2707,68 @@ var ResourcesTableContainerComponent = /** @class */ (function () {
         });
     };
     /**
+     * Event handler to detect date parameter type change.
+     * @param event MatTabChangeEvent
+     */
+    ResourcesTableContainerComponent.prototype.OnDateTabChange = function (event) {
+        this.useSpecificDateParam = (event.index === 0);
+        // console.log('useSpecificDateParam set to ' + this.useSpecificDateParam);
+    };
+    /**
+     * Utility function to get the supported date param for a resource.
+     */
+    ResourcesTableContainerComponent.prototype._getDateParamToUse = function () {
+        if (!!this.searchParams) {
+            var dateParam_1 = this._lastUpdatedParam;
+            this.searchParams.forEach(function (param) {
+                if (param.name.includes("date")) {
+                    dateParam_1 = param.name;
+                }
+            });
+            return dateParam_1;
+        }
+        return this._lastUpdatedParam;
+    };
+    /**
+     * Utility function to add date filters to the query parameter.
+     * @param paramToUse
+     * @param specificDate
+     * @param startDate
+     * @param endDate
+     */
+    ResourcesTableContainerComponent.prototype._setDateParam = function (paramToUse, specificDate, startDate, endDate) {
+        var dateParams = null;
+        if (typeof this.useSpecificDateParam === "undefined")
+            this.useSpecificDateParam = true; // Default selected tab is 'specific-date' (0)
+        if (this.useSpecificDateParam && !!specificDate) {
+            dateParams = {
+                '$eq': specificDate
+            };
+        }
+        if (!this.useSpecificDateParam && !!startDate) {
+            if (!dateParams)
+                dateParams = {};
+            dateParams['$ge'] = startDate;
+        }
+        if (!this.useSpecificDateParam && !!endDate) {
+            if (!dateParams)
+                dateParams = {};
+            dateParams['$le'] = endDate;
+        }
+        if (!!dateParams) {
+            //console.log(dateParams);
+            this.query[paramToUse] = dateParams;
+        }
+    };
+    /**
      * Called by the Apply button, to apply the query object in the editor and perform the FHIR API Call
      */
-    ResourcesTableContainerComponent.prototype.applyFilter = function () {
+    ResourcesTableContainerComponent.prototype.applyFilter = function (specificDate, startDate, endDate) {
         var _this = this;
         this._smartService.getClient()
             .takeUntil(this._unsubscribe)
             .subscribe(function (smartClient) {
-            _this._search(smartClient);
+            _this._search(smartClient, specificDate, startDate, endDate);
         });
     };
     /**
@@ -2726,7 +2817,7 @@ var ResourcesTableContainerComponent = /** @class */ (function () {
             .subscribe(function (conformance) {
             _this._zone.run(function () {
                 _this.canCreate = _this._helperService.hasSupport(conformance, smartClient.tokenResponse.scope, _this.resourceType, 'create');
-                console.log(_this.canCreate);
+                console.log("this.canCreate : " + _this.canCreate);
             });
         }, function (error) {
             _this._zone.run(function () {
@@ -2747,7 +2838,8 @@ var ResourcesTableContainerComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_services_helper_service__WEBPACK_IMPORTED_MODULE_2__["HelperService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"],
-            _services_smart_service__WEBPACK_IMPORTED_MODULE_3__["SmartService"]])
+            _services_smart_service__WEBPACK_IMPORTED_MODULE_3__["SmartService"],
+            src_app_services_ccds_resource_helper_service__WEBPACK_IMPORTED_MODULE_5__["CCDSResourceHelperService"]])
     ], ResourcesTableContainerComponent);
     return ResourcesTableContainerComponent;
 }());
@@ -2763,7 +2855,7 @@ var ResourcesTableContainerComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".resource-table-action-button {\r\n    margin: 5px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZXNvdXJjZXMvcmVzb3VyY2VzLXRhYmxlL3Jlc291cmNlcy10YWJsZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksV0FBVztBQUNmIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9yZXNvdXJjZXMvcmVzb3VyY2VzLXRhYmxlL3Jlc291cmNlcy10YWJsZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJlc291cmNlLXRhYmxlLWFjdGlvbi1idXR0b24ge1xyXG4gICAgbWFyZ2luOiA1cHg7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -2774,7 +2866,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"LIST\">\r\n    <mat-list *ngIf=\"bundle\">\r\n      <div>Total Number of resources on the Server:{{bundle.total}}</div>\r\n      <div *ngIf=\"bundle.entry\">Number of resources returned by the Query:{{bundle.entry.length}}</div>\r\n      <div *ngFor=\"let entry of bundle.entry\">\r\n        <div *ngIf=\"entry.resource.resourceType !== 'OperationOutcome'\">\r\n          <mat-list-item>\r\n            <p mat-line>ID: {{entry.resource.id}} </p>\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/resources/{{entry.resource.resourceType}}/{{entry.resource.id}}\">View</button>\r\n          </mat-list-item>\r\n        </div>\r\n      </div>\r\n    </mat-list>\r\n    <div *ngIf=\"bundle && bundle.total == 0\">\r\n      There are no resources of type {{resourceType}}\r\n    </div>\r\n  </mat-tab>\r\n  <mat-tab label=\"JSON\">\r\n    <ace-editor mode=\"text\" [text]=\"codeBundle\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\r\n  </mat-tab>\r\n</mat-tab-group>"
+module.exports = "<mat-tab-group>\n  <mat-tab label=\"LIST\">\n    <mat-list *ngIf=\"bundle\">\n      <div>Total Number of resources on the Server:{{bundle.total}}</div>\n      <div *ngIf=\"bundle.entry\">Number of resources returned by the Query:{{bundle.entry.length}}</div>\n      <div *ngIf=\"isCCDSResourceMenuEnabled\">The result set has been filtered to show items relevant to the selected CCDS type.</div>\n      <div *ngFor=\"let entry of bundle.entry\">\n        <div *ngIf=\"entry.resource.resourceType !== 'OperationOutcome'\">\n          <mat-list-item>\n            <p mat-line>ID: {{entry.resource.id}} </p>\n            <button mat-raised-button color=\"primary\" routerLink=\"/resources/{{entry.resource.resourceType}}/{{entry.resource.id}}\">View</button>\n            <span *ngIf=\"entry.resource.content && entry.resource.content[0] && entry.resource.content[0].attachment\">\n              <button class=\"resource-table-action-button\" mat-raised-button color=\"primary\" (click)=\"OnDownload(entry)\">Download</button>\n            </span>\n          </mat-list-item>\n        </div>\n      </div>\n    </mat-list>\n    <div *ngIf=\"bundle && bundle.total == 0\">\n      There are no resources of type {{resourceType}}\n    </div>\n  </mat-tab>\n  <mat-tab label=\"JSON\">\n    <ace-editor mode=\"text\" [text]=\"codeBundle\" style=\"height:500px;\" [theme]=\"'eclipse'\"></ace-editor>\n  </mat-tab>\n</mat-tab-group>"
 
 /***/ }),
 
@@ -2789,6 +2881,7 @@ module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"LIST\">\r\n    <mat-list
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResourcesTableComponent", function() { return ResourcesTableComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2799,10 +2892,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ResourcesTableComponent = /** @class */ (function () {
     function ResourcesTableComponent() {
     }
     ResourcesTableComponent.prototype.ngOnInit = function () {
+        this.isCCDSResourceMenuEnabled = src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].showCCDSResourceMenuInstead;
     };
     Object.defineProperty(ResourcesTableComponent.prototype, "codeBundle", {
         /**
@@ -2814,6 +2909,28 @@ var ResourcesTableComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    ResourcesTableComponent.prototype.OnDownload = function (entry) {
+        var attachment = entry.resource.content[0].attachment;
+        var url, filename;
+        if (attachment.url) {
+            url = attachment.url;
+            filename = attachment.title;
+        }
+        else if (attachment.data) {
+            var data = atob("" + attachment.data);
+            var blob = new Blob([data], { type: "" + attachment.contentType });
+            url = URL.createObjectURL(blob);
+            filename = entry.resource.id;
+        }
+        if (url) {
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
@@ -2900,6 +3017,196 @@ var ResourcesModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/data/ccds-resources.ts":
+/*!****************************************!*\
+  !*** ./src/app/data/ccds-resources.ts ***!
+  \****************************************/
+/*! exports provided: CCDS_RESOURCE_MAPPING */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CCDS_RESOURCE_MAPPING", function() { return CCDS_RESOURCE_MAPPING; });
+var CCDS_RESOURCE_MAPPING = [
+    {
+        CCDSType: "Patient Name",
+        FhirResource: "Patient",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Sex",
+        FhirResource: "Patient",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    }, {
+        CCDSType: "Date of Birth",
+        FhirResource: "Patient",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Race",
+        FhirResource: "Patient",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Ethnicity",
+        FhirResource: "Patient",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Preferred language",
+        FhirResource: "Patient",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Smoking Status",
+        FhirResource: "Observation",
+        SearchQueryParameters: { "code": "http://loinc.org|72166-2" },
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Problems",
+        FhirResource: "Condition",
+        SearchQueryParameters: {},
+        SearchSetFilter: problemFilter
+    },
+    {
+        CCDSType: "Medications",
+        FhirResource: "MedicationStatement",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Medication Allergies",
+        FhirResource: "AllergyIntolerance",
+        SearchQueryParameters: {},
+        SearchSetFilter: medicationAllergyFilter
+    },
+    {
+        CCDSType: "Lab Tests",
+        FhirResource: "DiagnosticReport",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Lab Values/Results",
+        FhirResource: "DiagnosticReport",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Vital Signs",
+        FhirResource: "Observation",
+        SearchQueryParameters: {
+            "code": "http://loinc.org|85353-1,http://loinc.org|8867-4,http://loinc.org|8302-2,http://loinc.org|8306-3,http://loinc.org|29463-7,http://loinc.org|85354-9,http://loinc.org|8480-6,http://loinc.org|8462-4"
+        },
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Procedures",
+        FhirResource: "Procedure",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Care team Members",
+        FhirResource: "CareTeam",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Immunizations",
+        FhirResource: "Immunization",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Unique Device Identifiers",
+        FhirResource: "Device",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Assessment and Plan of Treatment",
+        FhirResource: "CarePlan",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Goals",
+        FhirResource: "Goal",
+        SearchQueryParameters: {},
+        SearchSetFilter: defaultFilter
+    },
+    {
+        CCDSType: "Health Concerns",
+        FhirResource: "Condition",
+        SearchQueryParameters: {},
+        SearchSetFilter: healthConcernFilter
+    }
+];
+function defaultFilter(singleResourceEntry) {
+    return true;
+}
+function medicationAllergyFilter(singleResourceEntry) {
+    if (!singleResourceEntry.resource.extension.some(function (extension) {
+        return (extension.url.toLowerCase() === "https://fhir.chbase.com/fhir/stu3/structureddefinition/allergy" &&
+            extension.extension[0].url.toLowerCase() === "allergentype" &&
+            extension.extension[0].valueString.toLowerCase() === "med");
+    })) {
+        return false;
+    }
+    return true;
+}
+function problemFilter(singleResourceEntry) {
+    // "category": [
+    //     {
+    //       "coding": [
+    //         {
+    //           "system": "http://hl7.org/fhir/condition-clinical",
+    //           "code": "problem",
+    //           "display": "Problem"
+    //         }
+    //       ]
+    //     }
+    //   ],
+    if (!singleResourceEntry.resource.category.some(function (categoryEntry) {
+        return (categoryEntry.coding[0].system.toLowerCase() === "http://hl7.org/fhir/condition-clinical" &&
+            categoryEntry.coding[0].code.toLowerCase() === "problem");
+    })) {
+        return false;
+    }
+    return true;
+}
+function healthConcernFilter(singleResourceEntry) {
+    // "category": [
+    //     {
+    //       "coding": [
+    //         {
+    //           "system": "http://hl7.org/fhir/us/core/CodeSystem/condition-category",
+    //           "code": "health-concern",
+    //           "display": "Health Concern"
+    //         }
+    //       ]
+    //     }
+    //   ],
+    if (!singleResourceEntry.resource.category.some(function (categoryEntry) {
+        return (categoryEntry.coding[0].system.toLowerCase() === "http://hl7.org/fhir/us/core/codesystem/condition-category" &&
+            categoryEntry.coding[0].code.toLowerCase() === "health-concern");
+    })) {
+        return false;
+    }
+    return true;
+}
+
+
+/***/ }),
+
 /***/ "./src/app/data/client-apps.ts":
 /*!*************************************!*\
   !*** ./src/app/data/client-apps.ts ***!
@@ -2914,6 +3221,18 @@ __webpack_require__.r(__webpack_exports__);
  * List of SMART on FHIR Client Applications defined in the SAMPLE APPLICATION
  */
 var CLIENT_APPS = [
+    {
+        name: 'CHBase PPE - Sample Standalone and EHR Launch App',
+        uniqueName: 'chbaseppe1',
+        clientId: '6faa0fe6-8eb2-4217-8c4f-0910f7fed0b5',
+        redirectUri: 'http://localhost:4200/redirect/chbaseppe1',
+        launchUrl: 'http://localhost:4200/launch/chbaseppe1',
+        scopes: 'patient/*.*',
+        standalonePatient: true,
+        ehrLaunch: true,
+        server: 'chbaseppe',
+        secret: '5e24b756-9a70-4ea7-a602-150c639280a3'
+    },
     {
         name: 'CHBase PPE - Sample App - Live Demo',
         uniqueName: 'sampleappdocs',
@@ -5141,6 +5460,69 @@ var AuthService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/ccds-resource-helper.service.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/services/ccds-resource-helper.service.ts ***!
+  \**********************************************************/
+/*! exports provided: CCDSResourceHelperService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CCDSResourceHelperService", function() { return CCDSResourceHelperService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _data_ccds_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data/ccds-resources */ "./src/app/data/ccds-resources.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Service containing the CCDS-Resource mapping helper methods
+ */
+var CCDSResourceHelperService = /** @class */ (function () {
+    function CCDSResourceHelperService() {
+    }
+    /**
+     * Helper fn to get the CCDS types that can be supported by this system based
+     * on the supportedResources parsed from the Capability Statement.
+     * @param supportedResources An array of supported resources parsed from the capability statement.
+     */
+    CCDSResourceHelperService.prototype.getSupportedCCDSResources = function (supportedResources) {
+        return _data_ccds_resources__WEBPACK_IMPORTED_MODULE_1__["CCDS_RESOURCE_MAPPING"].filter(function (ccdsMapping) {
+            return supportedResources.some(function (resource) {
+                return resource.toLowerCase() === ccdsMapping.FhirResource.toLowerCase();
+            });
+        });
+    };
+    /**
+     * Get the CCDSResource item from it's name.
+     * @param CCDSResourceName The name of the CCDS type as defined in the CCDS-Resource-Mapping data file.
+     */
+    CCDSResourceHelperService.prototype.getCCDSResourceFromName = function (CCDSResourceName) {
+        return _data_ccds_resources__WEBPACK_IMPORTED_MODULE_1__["CCDS_RESOURCE_MAPPING"].find(function (ccdsmapping) {
+            return ccdsmapping.CCDSType.toLowerCase() === CCDSResourceName.toLowerCase();
+        });
+    };
+    CCDSResourceHelperService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], CCDSResourceHelperService);
+    return CCDSResourceHelperService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/client-app.service.ts":
 /*!************************************************!*\
   !*** ./src/app/services/client-app.service.ts ***!
@@ -5542,6 +5924,22 @@ var HelperService = /** @class */ (function () {
         var base64 = base64Url.replace('-', '+').replace('_', '/');
         return JSON.parse(window.atob(base64));
     };
+    /**
+     * Helper function to check if a target object has any keys from the src object
+     * @param target
+     * @param src
+     */
+    HelperService.prototype.hasIntersectingKeys = function (target, src) {
+        if (target === {} || src === {}) {
+            return false;
+        }
+        for (var srcKey in src) {
+            if (target.hasOwnProperty(srcKey)) {
+                return true;
+            }
+        }
+        return false;
+    };
     HelperService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -5833,6 +6231,24 @@ var SmartService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/environments/environment.prod.ts":
+/*!**********************************************!*\
+  !*** ./src/environments/environment.prod.ts ***!
+  \**********************************************/
+/*! exports provided: environment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
+var environment = {
+    production: true,
+    showCCDSResourceMenuInstead: true
+};
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -5847,7 +6263,8 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 var environment = {
-    production: false
+    production: false,
+    showCCDSResourceMenuInstead: true // Load CCDS resource menu instead of standard resource menu
 };
 /*
  * In development mode, to ignore zone related error stack frames such as
@@ -5893,7 +6310,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\GIT\smart-ng-fhir-app\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/adambeilchick/Repos/smart-ng-fhir-app/src/main.ts */"./src/main.ts");
 
 
 /***/ })
