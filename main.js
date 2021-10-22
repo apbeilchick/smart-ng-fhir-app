@@ -3242,7 +3242,7 @@ var CLIENT_APPS = [
         scopes: 'patient/*.*',
         standalonePatient: true,
         ehrLaunch: true,
-        server: 'chbaseppe',
+        server: 'logica',
         secret: 'P0Slz__YZE-6gQtTTFgTzheqzPcuUeG1FnyhSlJX4y4NndTI_oAJWakVQj2nelov9OHHeaC0n0V1EElHOpazsg'
     }
 ];
@@ -3279,6 +3279,16 @@ var FHIR_SERVERS = [
                 'Click on Learn more about the app',
                 'Click on Go to application (external link)'
             ]
+        },
+        supportsAccessTypes: true
+    },
+    {
+        uniqueName: 'logica',
+        name: 'Logica',
+        baseUrl: 'https://api.logicahealth.org/prsample/open',
+        information: {
+            patientStandalone: [],
+            ehrLaunch: []
         },
         supportsAccessTypes: true
     }
