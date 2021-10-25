@@ -3242,8 +3242,7 @@ var CLIENT_APPS = [
         scopes: 'launch,offline_access,openid,patient/*.*,profile',
         standalonePatient: true,
         ehrLaunch: true,
-        server: 'logica',
-        secret: 'P0Slz__YZE-6gQtTTFgTzheqzPcuUeG1FnyhSlJX4y4NndTI_oAJWakVQj2nelov9OHHeaC0n0V1EElHOpazsg'
+        server: 'logica'
     }
 ];
 
