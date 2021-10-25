@@ -1595,7 +1595,7 @@ var LaunchComponent = /** @class */ (function () {
                 var clientSettings = {
                     client_id: clientApp.clientId,
                     // Adding the scopes launch openid and profile
-                    scope: clientApp.scopes + ' offline_access launch openid profile',
+                    scope: clientApp.scopes,
                     redirect_uri: clientApp.redirectUri,
                     state: uniqueName
                 };
