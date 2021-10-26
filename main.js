@@ -1279,9 +1279,9 @@ var ConnectComponent = /** @class */ (function () {
                 return { value: scope.trim(), checked: true };
             });
             // Add the default scopes requried for a patient standalone launch
-            scopes.push({ value: 'launch/patient', checked: true });
-            scopes.push({ value: 'openid', checked: true });
-            scopes.push({ value: 'profile', checked: true });
+            // scopes.push({ value: 'launch/patient', checked: true });
+            // scopes.push({ value: 'openid', checked: true });
+            // scopes.push({ value: 'profile', checked: true });
             _this.scopes = scopes;
             var serverUniqueName = _this.app.server;
             _this._fhirServerService.getServer(serverUniqueName)
@@ -1298,13 +1298,13 @@ var ConnectComponent = /** @class */ (function () {
      */
     ConnectComponent.prototype.connect = function () {
         var _this = this;
-        var selectedScopes = this.scopes.filter(function (q) { return q.checked === true; }).map(function (v) { return v.value; }).join(' ');
-        if (this.server.supportsAccessTypes === true) {
-            selectedScopes = selectedScopes + ' ' + this.accessType;
-        }
-        if (this.additionalScopes !== '') {
-            selectedScopes = selectedScopes + ' ' + this.additionalScopes;
-        }
+        // let selectedScopes = this.scopes.filter(q => q.checked === true).map(v => v.value).join(' ');
+        // if (this.server.supportsAccessTypes === true) {
+        //   selectedScopes = selectedScopes + ' ' + this.accessType;
+        // }
+        // if (this.additionalScopes !== '') {
+        //   selectedScopes = selectedScopes + ' ' + this.additionalScopes;
+        // }
         var clientSettings = {
             client_id: this.app.clientId,
             scope: this.app.scopes,
@@ -3256,7 +3256,7 @@ var CLIENT_APPS = [
         server: 'logica'
     },
     {
-        name: 'Correct Scope - Logica',
+        name: 'Space Delimited Scope - Logica',
         uniqueName: 'scopes',
         clientId: '99678114-64b9-4803-a5f7-024090705bfb',
         redirectUri: 'https://apbeilchick.github.io/smart-ng-fhir-app/redirect/scopes',
