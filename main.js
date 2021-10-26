@@ -3261,7 +3261,7 @@ var CLIENT_APPS = [
         clientId: '99678114-64b9-4803-a5f7-024090705bfb',
         redirectUri: 'https://apbeilchick.github.io/smart-ng-fhir-app/redirect/scopes',
         launchUrl: 'https://apbeilchick.github.io/smart-ng-fhir-app/launch/scopes',
-        scopes: 'launch/patient,fhirUser,openid,patient/*.*,offline_access',
+        scopes: 'launch/patient fhirUser openid patient/*.* offline_access',
         standalonePatient: true,
         ehrLaunch: true,
         server: 'logica'
