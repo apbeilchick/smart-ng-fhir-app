@@ -1298,7 +1298,7 @@ var ConnectComponent = /** @class */ (function () {
      */
     ConnectComponent.prototype.connect = function () {
         var _this = this;
-        var selectedScopes = this.scopes.filter(function (q) { return q.checked === true; }).map(function (v) { return v.value; }).join(',');
+        var selectedScopes = this.scopes.filter(function (q) { return q.checked === true; }).map(function (v) { return v.value; }).join(' ');
         if (this.server.supportsAccessTypes === true) {
             selectedScopes = selectedScopes + ' ' + this.accessType;
         }
@@ -3251,6 +3251,17 @@ var CLIENT_APPS = [
         redirectUri: 'https://apbeilchick.github.io/smart-ng-fhir-app/redirect/shaun',
         launchUrl: 'https://apbeilchick.github.io/smart-ng-fhir-app/launch/shaun',
         scopes: 'launch/patient,offline_access,openid,patient/*.*,profile,fhirUser',
+        standalonePatient: true,
+        ehrLaunch: true,
+        server: 'logica'
+    },
+    {
+        name: 'Correct Scope - Logica',
+        uniqueName: 'scopes',
+        clientId: '99678114-64b9-4803-a5f7-024090705bfb',
+        redirectUri: 'https://apbeilchick.github.io/smart-ng-fhir-app/redirect/scopes',
+        launchUrl: 'https://apbeilchick.github.io/smart-ng-fhir-app/launch/scopes',
+        scopes: 'launch/patient online_access fhirUser openid patient/*.*',
         standalonePatient: true,
         ehrLaunch: true,
         server: 'logica'
