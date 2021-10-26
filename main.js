@@ -1298,7 +1298,7 @@ var ConnectComponent = /** @class */ (function () {
      */
     ConnectComponent.prototype.connect = function () {
         var _this = this;
-        var selectedScopes = this.scopes.filter(function (q) { return q.checked === true; }).map(function (v) { return v.value; }).join(' ');
+        var selectedScopes = this.scopes.filter(function (q) { return q.checked === true; }).map(function (v) { return v.value; }).join(',');
         if (this.server.supportsAccessTypes === true) {
             selectedScopes = selectedScopes + ' ' + this.accessType;
         }
@@ -1307,7 +1307,7 @@ var ConnectComponent = /** @class */ (function () {
         }
         var clientSettings = {
             client_id: this.app.clientId,
-            scope: selectedScopes,
+            scope: this.app.scopes,
             redirect_uri: this.app.redirectUri,
             state: this.app.uniqueName,
         };
