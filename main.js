@@ -2734,7 +2734,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var routes = [
     { path: 'resources/Patient', component: ___WEBPACK_IMPORTED_MODULE_3__["PatientComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGaurd"]] },
-    { path: 'resources/dashboard', component: ___WEBPACK_IMPORTED_MODULE_3__["PatientComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGaurd"]] },
+    { path: 'resources/dashboard', component: ___WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGaurd"]] },
     { path: 'resources/:resourceType', component: ___WEBPACK_IMPORTED_MODULE_3__["ResourcesTableContainerComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGaurd"]] },
     { path: 'resources/:resourceType/:id', component: ___WEBPACK_IMPORTED_MODULE_3__["EditResourceComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGaurd"]] },
 ];
