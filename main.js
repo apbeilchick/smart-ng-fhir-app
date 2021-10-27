@@ -2048,6 +2048,105 @@ var UserProfileComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/resources/dashboard/dashboard.component.css":
+/*!************************************************************************!*\
+  !*** ./src/app/components/resources/dashboard/dashboard.component.css ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/resources/dashboard/dashboard.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/resources/dashboard/dashboard.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-patient-demographics></app-patient-demographics>\n<button>Therapy Data</button>\n<button>Patterns of Use</button>\n<h1>Display some TData here</h1>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/resources/dashboard/dashboard.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/resources/dashboard/dashboard.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: DashboardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_smart_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/smart.service */ "./src/app/services/smart.service.ts");
+/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/internal/Subject */ "./node_modules/rxjs/internal/Subject.js");
+/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_2__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DashboardComponent = /** @class */ (function () {
+    function DashboardComponent(_zone, _smartService) {
+        this._zone = _zone;
+        this._smartService = _smartService;
+        this._unsubscribe = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    /**
+     * Fetch the Patient Resource based on the Patient in Context
+     */
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._smartService.getClient()
+            .takeUntil(this._unsubscribe)
+            .subscribe(function (smartClient) {
+            var api = smartClient.api;
+            var searchParams = {
+                type: 'Patient',
+                patient: smartClient.patient.id,
+            };
+            // Makes use of the SMART on FHIR JS Client search api method
+            api.search(searchParams).then(function (response) {
+                _this._zone.run(function () {
+                    _this.patient = response.data;
+                    _this.error = null;
+                });
+            }, function (error) {
+                _this._zone.run(function () {
+                    _this.error = error;
+                });
+            });
+        });
+    };
+    DashboardComponent.prototype.ngOnDestroy = function () {
+        this._unsubscribe.next();
+        this._unsubscribe.complete();
+    };
+    DashboardComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-dashboard',
+            template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/components/resources/dashboard/dashboard.component.html"),
+            styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/components/resources/dashboard/dashboard.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], _services_smart_service__WEBPACK_IMPORTED_MODULE_1__["SmartService"]])
+    ], DashboardComponent);
+    return DashboardComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/resources/edit-resource/edit-resource.component.css":
 /*!********************************************************************************!*\
   !*** ./src/app/components/resources/edit-resource/edit-resource.component.css ***!
@@ -2375,7 +2474,7 @@ var EditResourceComponent = /** @class */ (function () {
 /*!***********************************************!*\
   !*** ./src/app/components/resources/index.ts ***!
   \***********************************************/
-/*! exports provided: EditResourceComponent, PatientComponent, ResourcesTableComponent, ResourcesTableContainerComponent */
+/*! exports provided: EditResourceComponent, PatientComponent, ResourcesTableComponent, ResourcesTableContainerComponent, DashboardComponent, PatientDemographicsComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2392,9 +2491,117 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_table_container_resources_table_container_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./resources-table-container/resources-table-container.component */ "./src/app/components/resources/resources-table-container/resources-table-container.component.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResourcesTableContainerComponent", function() { return _resources_table_container_resources_table_container_component__WEBPACK_IMPORTED_MODULE_3__["ResourcesTableContainerComponent"]; });
 
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/components/resources/dashboard/dashboard.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"]; });
+
+/* harmony import */ var _patient_demographics_patient_demographics_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./patient-demographics/patient-demographics.component */ "./src/app/components/resources/patient-demographics/patient-demographics.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PatientDemographicsComponent", function() { return _patient_demographics_patient_demographics_component__WEBPACK_IMPORTED_MODULE_5__["PatientDemographicsComponent"]; });
 
 
 
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/resources/patient-demographics/patient-demographics.component.css":
+/*!**********************************************************************************************!*\
+  !*** ./src/app/components/resources/patient-demographics/patient-demographics.component.css ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL3BhdGllbnQtZGVtb2dyYXBoaWNzL3BhdGllbnQtZGVtb2dyYXBoaWNzLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/components/resources/patient-demographics/patient-demographics.component.html":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/components/resources/patient-demographics/patient-demographics.component.html ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Display some Patient Demographics here</h1>\n<label>Last Name: {{patient.entry[0].name.family}}</label>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/components/resources/patient-demographics/patient-demographics.component.ts":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/components/resources/patient-demographics/patient-demographics.component.ts ***!
+  \*********************************************************************************************/
+/*! exports provided: PatientDemographicsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PatientDemographicsComponent", function() { return PatientDemographicsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_smart_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/smart.service */ "./src/app/services/smart.service.ts");
+/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/internal/Subject */ "./node_modules/rxjs/internal/Subject.js");
+/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_2__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PatientDemographicsComponent = /** @class */ (function () {
+    function PatientDemographicsComponent(_zone, _smartService) {
+        this._zone = _zone;
+        this._smartService = _smartService;
+        this.patient = {};
+        this._unsubscribe = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    /**
+     * Fetch the Patient Resource based on the Patient in Context
+     */
+    PatientDemographicsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._smartService.getClient()
+            .takeUntil(this._unsubscribe)
+            .subscribe(function (smartClient) {
+            var api = smartClient.api;
+            var searchParams = {
+                type: 'Patient',
+                patient: smartClient.patient.id,
+            };
+            // Makes use of the SMART on FHIR JS Client search api method
+            api.search(searchParams).then(function (response) {
+                _this._zone.run(function () {
+                    _this.patient = response.data;
+                    _this.error = null;
+                });
+            }, function (error) {
+                _this._zone.run(function () {
+                    _this.error = error;
+                });
+            });
+        });
+    };
+    PatientDemographicsComponent.prototype.ngOnDestroy = function () {
+        this._unsubscribe.next();
+        this._unsubscribe.complete();
+    };
+    PatientDemographicsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-patient-demographics',
+            template: __webpack_require__(/*! ./patient-demographics.component.html */ "./src/app/components/resources/patient-demographics/patient-demographics.component.html"),
+            styles: [__webpack_require__(/*! ./patient-demographics.component.css */ "./src/app/components/resources/patient-demographics/patient-demographics.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], _services_smart_service__WEBPACK_IMPORTED_MODULE_1__["SmartService"]])
+    ], PatientDemographicsComponent);
+    return PatientDemographicsComponent;
+}());
 
 
 
@@ -2527,6 +2734,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var routes = [
     { path: 'resources/Patient', component: ___WEBPACK_IMPORTED_MODULE_3__["PatientComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGaurd"]] },
+    { path: 'resources/dashboard', component: ___WEBPACK_IMPORTED_MODULE_3__["PatientComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGaurd"]] },
     { path: 'resources/:resourceType', component: ___WEBPACK_IMPORTED_MODULE_3__["ResourcesTableContainerComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGaurd"]] },
     { path: 'resources/:resourceType/:id', component: ___WEBPACK_IMPORTED_MODULE_3__["EditResourceComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGaurd"]] },
 ];
@@ -3006,7 +3214,9 @@ var ResourcesModule = /** @class */ (function () {
                 ___WEBPACK_IMPORTED_MODULE_2__["EditResourceComponent"],
                 ___WEBPACK_IMPORTED_MODULE_2__["PatientComponent"],
                 ___WEBPACK_IMPORTED_MODULE_2__["ResourcesTableComponent"],
-                ___WEBPACK_IMPORTED_MODULE_2__["ResourcesTableContainerComponent"]
+                ___WEBPACK_IMPORTED_MODULE_2__["ResourcesTableContainerComponent"],
+                ___WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"],
+                ___WEBPACK_IMPORTED_MODULE_2__["PatientDemographicsComponent"]
             ]
         })
     ], ResourcesModule);
@@ -5458,7 +5668,7 @@ var AuthService = /** @class */ (function () {
      */
     AuthService.prototype.login = function () {
         this.loggedIn.next(true);
-        this._router.navigate(['/resources/Patient']);
+        this._router.navigate(['/resources/dashboard']);
     };
     Object.defineProperty(AuthService.prototype, "isLoggedIn", {
         /**
