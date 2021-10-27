@@ -2525,7 +2525,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Display some Patient Demographics here</h1>\n<label>Last Name: {{patient.entry[0].resource.name[0].family}}</label>\n\n"
+module.exports = "<h1>Display some Patient Demographics here</h1>\n<label>Last Name: {{patient[0].entry[0].resource.name[0].family}}</label>\n\n"
 
 /***/ }),
 
