@@ -2055,7 +2055,7 @@ var UserProfileComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "button {\n  background: cornflowerblue;\n  border-radius: 5px;\n  color: white;\n  margin-right: 10px;\n  border: gray;\n  height: 30px;\n  width: 150px;\n  font-size: 16px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZXNvdXJjZXMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsMEJBQTBCO0VBQzFCLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixZQUFZO0VBQ1osWUFBWTtFQUNaLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3Jlc291cmNlcy9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJidXR0b24ge1xuICBiYWNrZ3JvdW5kOiBjb3JuZmxvd2VyYmx1ZTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBjb2xvcjogd2hpdGU7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbiAgYm9yZGVyOiBncmF5O1xuICBoZWlnaHQ6IDMwcHg7XG4gIHdpZHRoOiAxNTBweDtcbiAgZm9udC1zaXplOiAxNnB4O1xufVxuIl19 */"
 
 /***/ }),
 
@@ -2066,7 +2066,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-patient-demographics></app-patient-demographics>\n<button>Therapy Data</button>\n<button>Patterns of Use</button>\n<h1>Display some TData here</h1>\n"
+module.exports = "<app-patient-demographics></app-patient-demographics>\n<button (click)=\"toggleOnTData()\">Therapy Data</button>\n<button (click)=\"toggleOnPOU()\">Patterns of Use</button>\n<app-therapy-data *ngIf=\"showingTData\"></app-therapy-data>\n<app-patterns-of-use *ngIf=\"showingPou\"></app-patterns-of-use>\n"
 
 /***/ }),
 
@@ -2100,6 +2100,8 @@ var DashboardComponent = /** @class */ (function () {
     function DashboardComponent(_zone, _smartService) {
         this._zone = _zone;
         this._smartService = _smartService;
+        this.showingPou = false;
+        this.showingTData = true;
         this._unsubscribe = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
     /**
@@ -2127,6 +2129,14 @@ var DashboardComponent = /** @class */ (function () {
                 });
             });
         });
+    };
+    DashboardComponent.prototype.toggleOnPOU = function () {
+        this.showingPou = true;
+        this.showingTData = false;
+    };
+    DashboardComponent.prototype.toggleOnTData = function () {
+        this.showingPou = false;
+        this.showingTData = true;
     };
     DashboardComponent.prototype.ngOnDestroy = function () {
         this._unsubscribe.next();
@@ -2474,7 +2484,7 @@ var EditResourceComponent = /** @class */ (function () {
 /*!***********************************************!*\
   !*** ./src/app/components/resources/index.ts ***!
   \***********************************************/
-/*! exports provided: EditResourceComponent, PatientComponent, ResourcesTableComponent, ResourcesTableContainerComponent, DashboardComponent, PatientDemographicsComponent */
+/*! exports provided: EditResourceComponent, PatientComponent, ResourcesTableComponent, ResourcesTableContainerComponent, DashboardComponent, PatientDemographicsComponent, PatternsOfUseComponent, TherapyDataComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2496,6 +2506,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _patient_demographics_patient_demographics_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./patient-demographics/patient-demographics.component */ "./src/app/components/resources/patient-demographics/patient-demographics.component.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PatientDemographicsComponent", function() { return _patient_demographics_patient_demographics_component__WEBPACK_IMPORTED_MODULE_5__["PatientDemographicsComponent"]; });
+
+/* harmony import */ var _patterns_of_use_patterns_of_use_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./patterns-of-use/patterns-of-use.component */ "./src/app/components/resources/patterns-of-use/patterns-of-use.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PatternsOfUseComponent", function() { return _patterns_of_use_patterns_of_use_component__WEBPACK_IMPORTED_MODULE_6__["PatternsOfUseComponent"]; });
+
+/* harmony import */ var _therapy_data_therapy_data_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./therapy-data/therapy-data.component */ "./src/app/components/resources/therapy-data/therapy-data.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TherapyDataComponent", function() { return _therapy_data_therapy_data_component__WEBPACK_IMPORTED_MODULE_7__["TherapyDataComponent"]; });
+
+
 
 
 
@@ -2525,7 +2543,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Display some Patient Demographics here</h1>\n<label>Last Name: {{patient[0].entry[0].resource.name[0].family}}</label>\n\n"
+module.exports = "<label>First Name: {{patient.entry[0].resource.name[0].given[0]}}</label>\n<label>Last Name: {{patient.entry[0].resource.name[0].family}}</label>\n<label>Date of birth: {{patient.entry[0].resource.birthDate}}</label>\n<label>Gender: {{patient.entry[0].resource.gender}}</label>\n<br />\n"
 
 /***/ }),
 
@@ -2700,6 +2718,71 @@ var PatientComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], _services_smart_service__WEBPACK_IMPORTED_MODULE_1__["SmartService"]])
     ], PatientComponent);
     return PatientComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/resources/patterns-of-use/patterns-of-use.component.css":
+/*!************************************************************************************!*\
+  !*** ./src/app/components/resources/patterns-of-use/patterns-of-use.component.css ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL3BhdHRlcm5zLW9mLXVzZS9wYXR0ZXJucy1vZi11c2UuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/resources/patterns-of-use/patterns-of-use.component.html":
+/*!*************************************************************************************!*\
+  !*** ./src/app/components/resources/patterns-of-use/patterns-of-use.component.html ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Patterns of use</h1>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/resources/patterns-of-use/patterns-of-use.component.ts":
+/*!***********************************************************************************!*\
+  !*** ./src/app/components/resources/patterns-of-use/patterns-of-use.component.ts ***!
+  \***********************************************************************************/
+/*! exports provided: PatternsOfUseComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PatternsOfUseComponent", function() { return PatternsOfUseComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PatternsOfUseComponent = /** @class */ (function () {
+    function PatternsOfUseComponent() {
+    }
+    PatternsOfUseComponent.prototype.ngOnInit = function () {
+    };
+    PatternsOfUseComponent.prototype.ngOnDestroy = function () {
+    };
+    PatternsOfUseComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-patterns-of-use',
+            template: __webpack_require__(/*! ./patterns-of-use.component.html */ "./src/app/components/resources/patterns-of-use/patterns-of-use.component.html"),
+            styles: [__webpack_require__(/*! ./patterns-of-use.component.css */ "./src/app/components/resources/patterns-of-use/patterns-of-use.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], PatternsOfUseComponent);
+    return PatternsOfUseComponent;
 }());
 
 
@@ -3216,11 +3299,78 @@ var ResourcesModule = /** @class */ (function () {
                 ___WEBPACK_IMPORTED_MODULE_2__["ResourcesTableComponent"],
                 ___WEBPACK_IMPORTED_MODULE_2__["ResourcesTableContainerComponent"],
                 ___WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"],
-                ___WEBPACK_IMPORTED_MODULE_2__["PatientDemographicsComponent"]
+                ___WEBPACK_IMPORTED_MODULE_2__["PatientDemographicsComponent"],
+                ___WEBPACK_IMPORTED_MODULE_2__["PatternsOfUseComponent"],
+                ___WEBPACK_IMPORTED_MODULE_2__["TherapyDataComponent"]
             ]
         })
     ], ResourcesModule);
     return ResourcesModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/resources/therapy-data/therapy-data.component.css":
+/*!******************************************************************************!*\
+  !*** ./src/app/components/resources/therapy-data/therapy-data.component.css ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL3RoZXJhcHktZGF0YS90aGVyYXB5LWRhdGEuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/resources/therapy-data/therapy-data.component.html":
+/*!*******************************************************************************!*\
+  !*** ./src/app/components/resources/therapy-data/therapy-data.component.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Therapy Data</h1>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/resources/therapy-data/therapy-data.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/components/resources/therapy-data/therapy-data.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: TherapyDataComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TherapyDataComponent", function() { return TherapyDataComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TherapyDataComponent = /** @class */ (function () {
+    function TherapyDataComponent() {
+    }
+    TherapyDataComponent.prototype.ngOnInit = function () {
+    };
+    TherapyDataComponent.prototype.ngOnDestroy = function () {
+    };
+    TherapyDataComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-therapy-data',
+            template: __webpack_require__(/*! ./therapy-data.component.html */ "./src/app/components/resources/therapy-data/therapy-data.component.html"),
+            styles: [__webpack_require__(/*! ./therapy-data.component.css */ "./src/app/components/resources/therapy-data/therapy-data.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], TherapyDataComponent);
+    return TherapyDataComponent;
 }());
 
 
