@@ -1955,7 +1955,7 @@ module.exports = "button {\n  background: cornflowerblue;\n  border-radius: 5px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-patient-demographics></app-patient-demographics>\n<button (click)=\"toggleOnTData()\" [class.isActive]=\"showingTData\">Therapy Data</button>\n<button (click)=\"toggleOnPOU()\"  [class.isActive]=\"showingPou\">Patterns of Use</button>\n<app-therapy-data [hidden]=\"!showingTData\"></app-therapy-data>\n<app-patterns-of-use [hidden]=\"!showingPou\"></app-patterns-of-use>\n"
+module.exports = "<app-patient-demographics></app-patient-demographics>\n<button (click)=\"toggleOnTData()\" [class.isActive]=\"showingTData\">Therapy Data</button>\n<button (click)=\"toggleOnPOU()\"  [class.isActive]=\"showingPou\">Patterns of Use</button>\n<app-therapy-data *ngIf=\"showingTData\"></app-therapy-data>\n<app-patterns-of-use *ngIf=\"showingPou\"></app-patterns-of-use>\n"
 
 /***/ }),
 
@@ -2600,7 +2600,7 @@ var PatientComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#chartdiv {\n  width: 100%;\n  height: 500px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZXNvdXJjZXMvcGF0dGVybnMtb2YtdXNlL3BhdHRlcm5zLW9mLXVzZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztFQUNYLGFBQWE7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL3BhdHRlcm5zLW9mLXVzZS9wYXR0ZXJucy1vZi11c2UuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNjaGFydGRpdiB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDUwMHB4O1xufVxuIl19 */"
+module.exports = "#chartdivpou {\n  width: 100%;\n  height: 500px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZXNvdXJjZXMvcGF0dGVybnMtb2YtdXNlL3BhdHRlcm5zLW9mLXVzZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztFQUNYLGFBQWE7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL3BhdHRlcm5zLW9mLXVzZS9wYXR0ZXJucy1vZi11c2UuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNjaGFydGRpdnBvdSB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDUwMHB4O1xufVxuIl19 */"
 
 /***/ }),
 
@@ -2611,7 +2611,7 @@ module.exports = "#chartdiv {\n  width: 100%;\n  height: 500px;\n}\n\n/*# source
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"pouChartDiv\"></div>\n\n"
+module.exports = "<div id=\"chartdivpou\"></div>\n\n"
 
 /***/ }),
 
@@ -2650,7 +2650,7 @@ var PatternsOfUseComponent = /** @class */ (function () {
     };
     // tslint:disable-next-line:use-life-cycle-interface
     PatternsOfUseComponent.prototype.ngAfterViewInit = function () {
-        this.chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_3__["create"]('pouChartDiv', _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_4__["XYChart"]);
+        this.chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_3__["create"]('chartdivpou', _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_4__["XYChart"]);
         this.chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
         this.chart.paddingRight = 30;
         this.chart.dateFormatter.inputDateFormat = 'yyyy-MM-dd HH:mm';
@@ -3333,7 +3333,7 @@ var ResourcesModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#chartdiv {\n  width: 100%;\n  height: 500px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZXNvdXJjZXMvdGhlcmFweS1kYXRhL3RoZXJhcHktZGF0YS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztFQUNYLGFBQWE7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL3RoZXJhcHktZGF0YS90aGVyYXB5LWRhdGEuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNjaGFydGRpdiB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDUwMHB4O1xufVxuIl19 */"
+module.exports = "#chartdivtdata {\n  width: 100%;\n  height: 500px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZXNvdXJjZXMvdGhlcmFweS1kYXRhL3RoZXJhcHktZGF0YS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztFQUNYLGFBQWE7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL3RoZXJhcHktZGF0YS90aGVyYXB5LWRhdGEuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNjaGFydGRpdnRkYXRhIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogNTAwcHg7XG59XG4iXX0= */"
 
 /***/ }),
 
@@ -3344,7 +3344,7 @@ module.exports = "#chartdiv {\n  width: 100%;\n  height: 500px;\n}\n\n/*# source
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"chartdiv\"></div>\n\n"
+module.exports = "<div id=\"chartdivtdata\"></div>\n\n"
 
 /***/ }),
 
@@ -3383,7 +3383,7 @@ var TherapyDataComponent = /** @class */ (function () {
     };
     // tslint:disable-next-line:use-life-cycle-interface
     TherapyDataComponent.prototype.ngAfterViewInit = function () {
-        this.chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_2__["create"]('chartdiv', _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_3__["XYChart"]);
+        this.chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_2__["create"]('chartdivtdata', _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_3__["XYChart"]);
         this.chart.data = [{
                 'x': 1,
                 'ay': 6.5,
