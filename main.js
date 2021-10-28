@@ -2002,6 +2002,18 @@ var DashboardComponent = /** @class */ (function () {
      */
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this._clientAppService.getAllClientApps()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(this._unsubscribe))
+            .subscribe(function (clientApps) {
+            var uniqueName = _this._route.snapshot.paramMap.get('uniqueName');
+            var clientApp = clientApps.find(function (q) { return q.uniqueName === uniqueName; });
+            if (clientApp.dashboardLaunch === 'pou') {
+                _this.toggleOnPOU();
+            }
+            else {
+                _this.toggleOnTData();
+            }
+        });
         this._smartService.getClient()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(this._unsubscribe))
             .subscribe(function (smartClient) {
@@ -2021,18 +2033,6 @@ var DashboardComponent = /** @class */ (function () {
                     _this.error = error;
                 });
             });
-        });
-        this._clientAppService.getAllClientApps()
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(this._unsubscribe))
-            .subscribe(function (clientApps) {
-            var uniqueName = _this._route.snapshot.paramMap.get('uniqueName');
-            var clientApp = clientApps.find(function (q) { return q.uniqueName === uniqueName; });
-            if (clientApp.dashboardLaunch === 'pou') {
-                _this.toggleOnPOU();
-            }
-            else {
-                _this.toggleOnTData();
-            }
         });
     };
     DashboardComponent.prototype.toggleOnPOU = function () {
