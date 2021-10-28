@@ -1944,7 +1944,7 @@ var UserProfileComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "button {\n  background: cornflowerblue;\n  border-radius: 5px;\n  color: white;\n  margin-right: 10px;\n  border: gray;\n  height: 30px;\n  width: 150px;\n  font-size: 16px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZXNvdXJjZXMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsMEJBQTBCO0VBQzFCLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixZQUFZO0VBQ1osWUFBWTtFQUNaLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3Jlc291cmNlcy9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJidXR0b24ge1xuICBiYWNrZ3JvdW5kOiBjb3JuZmxvd2VyYmx1ZTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBjb2xvcjogd2hpdGU7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbiAgYm9yZGVyOiBncmF5O1xuICBoZWlnaHQ6IDMwcHg7XG4gIHdpZHRoOiAxNTBweDtcbiAgZm9udC1zaXplOiAxNnB4O1xufVxuIl19 */"
+module.exports = "button {\n  background: cornflowerblue;\n  border-radius: 5px;\n  color: white;\n  margin-right: 10px;\n  border: gray;\n  height: 30px;\n  width: 150px;\n  font-size: 16px;\n}\n\n\nbutton.isActive {\n  filter: saturate(150%);\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZXNvdXJjZXMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsMEJBQTBCO0VBQzFCLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixZQUFZO0VBQ1osWUFBWTtFQUNaLGVBQWU7QUFDakI7OztBQUdBO0VBQ0Usc0JBQXNCO0FBQ3hCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9yZXNvdXJjZXMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYnV0dG9uIHtcbiAgYmFja2dyb3VuZDogY29ybmZsb3dlcmJsdWU7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgY29sb3I6IHdoaXRlO1xuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XG4gIGJvcmRlcjogZ3JheTtcbiAgaGVpZ2h0OiAzMHB4O1xuICB3aWR0aDogMTUwcHg7XG4gIGZvbnQtc2l6ZTogMTZweDtcbn1cblxuXG5idXR0b24uaXNBY3RpdmUge1xuICBmaWx0ZXI6IHNhdHVyYXRlKDE1MCUpO1xufVxuIl19 */"
 
 /***/ }),
 
@@ -1955,7 +1955,7 @@ module.exports = "button {\n  background: cornflowerblue;\n  border-radius: 5px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-patient-demographics></app-patient-demographics>\n<button (click)=\"toggleOnTData()\">Therapy Data</button>\n<button (click)=\"toggleOnPOU()\">Patterns of Use</button>\n<app-therapy-data *ngIf=\"showingTData\"></app-therapy-data>\n<app-patterns-of-use *ngIf=\"showingPou\"></app-patterns-of-use>\n"
+module.exports = "<app-patient-demographics></app-patient-demographics>\n<button (click)=\"toggleOnTData()\" [class.isActive]=\"showingTData\">Therapy Data</button>\n<button (click)=\"toggleOnPOU()\"  [class.isActive]=\"showingPou\">Patterns of Use</button>\n<app-therapy-data *ngIf=\"showingTData\"></app-therapy-data>\n<app-patterns-of-use *ngIf=\"showingPou\"></app-patterns-of-use>\n"
 
 /***/ }),
 
