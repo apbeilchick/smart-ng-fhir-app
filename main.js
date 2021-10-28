@@ -2600,7 +2600,7 @@ var PatientComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL3BhdHRlcm5zLW9mLXVzZS9wYXR0ZXJucy1vZi11c2UuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "#chartdiv {\n  width: 100%;\n  height: 500px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZXNvdXJjZXMvcGF0dGVybnMtb2YtdXNlL3BhdHRlcm5zLW9mLXVzZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztFQUNYLGFBQWE7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzb3VyY2VzL3BhdHRlcm5zLW9mLXVzZS9wYXR0ZXJucy1vZi11c2UuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNjaGFydGRpdiB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDUwMHB4O1xufVxuIl19 */"
 
 /***/ }),
 
@@ -2611,7 +2611,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Patterns of use</h1>\n"
+module.exports = "<div id=\"chartdiv\"></div>\n\n"
 
 /***/ }),
 
@@ -2627,14 +2627,185 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PatternsOfUseComponent", function() { return PatternsOfUseComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @amcharts/amcharts4/core */ "./node_modules/@amcharts/amcharts4/core.js");
+/* harmony import */ var _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @amcharts/amcharts4/charts */ "./node_modules/@amcharts/amcharts4/charts.js");
+
+
+
 
 
 var PatternsOfUseComponent = /** @class */ (function () {
-    function PatternsOfUseComponent() {
+    function PatternsOfUseComponent(platformId, zone) {
+        this.platformId = platformId;
+        this.zone = zone;
     }
-    PatternsOfUseComponent.prototype.ngOnInit = function () {
+    // Run the function only in the browser
+    PatternsOfUseComponent.prototype.browserOnly = function (f) {
+        if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this.platformId)) {
+            this.zone.runOutsideAngular(function () {
+                f();
+            });
+        }
+    };
+    // tslint:disable-next-line:use-life-cycle-interface
+    PatternsOfUseComponent.prototype.ngAfterViewInit = function () {
+        this.chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_3__["create"]('chartdiv', _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_4__["XYChart"]);
+        this.chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+        this.chart.paddingRight = 30;
+        this.chart.dateFormatter.inputDateFormat = 'yyyy-MM-dd HH:mm';
+        var colorSet = new _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_3__["ColorSet"]();
+        colorSet.saturation = 0.4;
+        this.chart.data = [{
+                'category': 'Module #1',
+                'start': '2016-01-01',
+                'end': '2016-01-14',
+                'color': colorSet.getIndex(0).brighten(0),
+                'task': 'Gathering requirements'
+            }, {
+                'category': 'Module #1',
+                'start': '2016-01-16',
+                'end': '2016-01-27',
+                'color': colorSet.getIndex(0).brighten(0.4),
+                'task': 'Producing specifications'
+            }, {
+                'category': 'Module #1',
+                'start': '2016-02-05',
+                'end': '2016-04-18',
+                'color': colorSet.getIndex(0).brighten(0.8),
+                'task': 'Development'
+            }, {
+                'category': 'Module #1',
+                'start': '2016-04-18',
+                'end': '2016-04-30',
+                'color': colorSet.getIndex(0).brighten(1.2),
+                'task': 'Testing and QA'
+            }, {
+                'category': 'Module #2',
+                'start': '2016-01-08',
+                'end': '2016-01-10',
+                'color': colorSet.getIndex(2).brighten(0),
+                'task': 'Gathering requirements'
+            }, {
+                'category': 'Module #2',
+                'start': '2016-01-12',
+                'end': '2016-01-15',
+                'color': colorSet.getIndex(2).brighten(0.4),
+                'task': 'Producing specifications'
+            }, {
+                'category': 'Module #2',
+                'start': '2016-01-16',
+                'end': '2016-02-05',
+                'color': colorSet.getIndex(2).brighten(0.8),
+                'task': 'Development'
+            }, {
+                'category': 'Module #2',
+                'start': '2016-02-10',
+                'end': '2016-02-18',
+                'color': colorSet.getIndex(2).brighten(1.2),
+                'task': 'Testing and QA'
+            }, {
+                'category': 'Module #3',
+                'start': '2016-01-02',
+                'end': '2016-01-08',
+                'color': colorSet.getIndex(4).brighten(0),
+                'task': 'Gathering requirements'
+            }, {
+                'category': 'Module #3',
+                'start': '2016-01-08',
+                'end': '2016-01-16',
+                'color': colorSet.getIndex(4).brighten(0.4),
+                'task': 'Producing specifications'
+            }, {
+                'category': 'Module #3',
+                'start': '2016-01-19',
+                'end': '2016-03-01',
+                'color': colorSet.getIndex(4).brighten(0.8),
+                'task': 'Development'
+            }, {
+                'category': 'Module #3',
+                'start': '2016-03-12',
+                'end': '2016-04-05',
+                'color': colorSet.getIndex(4).brighten(1.2),
+                'task': 'Testing and QA'
+            }, {
+                'category': 'Module #4',
+                'start': '2016-01-01',
+                'end': '2016-01-19',
+                'color': colorSet.getIndex(6).brighten(0),
+                'task': 'Gathering requirements'
+            }, {
+                'category': 'Module #4',
+                'start': '2016-01-19',
+                'end': '2016-02-03',
+                'color': colorSet.getIndex(6).brighten(0.4),
+                'task': 'Producing specifications'
+            }, {
+                'category': 'Module #4',
+                'start': '2016-03-20',
+                'end': '2016-04-25',
+                'color': colorSet.getIndex(6).brighten(0.8),
+                'task': 'Development'
+            }, {
+                'category': 'Module #4',
+                'start': '2016-04-27',
+                'end': '2016-05-15',
+                'color': colorSet.getIndex(6).brighten(1.2),
+                'task': 'Testing and QA'
+            }, {
+                'category': 'Module #5',
+                'start': '2016-01-01',
+                'end': '2016-01-12',
+                'color': colorSet.getIndex(8).brighten(0),
+                'task': 'Gathering requirements'
+            }, {
+                'category': 'Module #5',
+                'start': '2016-01-12',
+                'end': '2016-01-19',
+                'color': colorSet.getIndex(8).brighten(0.4),
+                'task': 'Producing specifications'
+            }, {
+                'category': 'Module #5',
+                'start': '2016-01-19',
+                'end': '2016-03-01',
+                'color': colorSet.getIndex(8).brighten(0.8),
+                'task': 'Development'
+            }, {
+                'category': 'Module #5',
+                'start': '2016-03-08',
+                'end': '2016-03-30',
+                'color': colorSet.getIndex(8).brighten(1.2),
+                'task': 'Testing and QA'
+            }];
+        this.chart.dateFormatter.dateFormat = 'yyyy-MM-dd';
+        this.chart.dateFormatter.inputDateFormat = 'yyyy-MM-dd';
+        var categoryAxis = this.chart.yAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_4__["CategoryAxis"]());
+        categoryAxis.dataFields.category = 'category';
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.inversed = true;
+        var dateAxis = this.chart.xAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_4__["DateAxis"]());
+        dateAxis.renderer.minGridDistance = 70;
+        dateAxis.baseInterval = { count: 1, timeUnit: 'day' };
+        dateAxis.renderer.tooltipLocation = 0;
+        var series1 = this.chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_4__["ColumnSeries"]());
+        series1.columns.template.height = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_3__["percent"](70);
+        series1.columns.template.tooltipText = '{task}: [bold]{openDateX}[/] - [bold]{dateX}[/]';
+        series1.dataFields.openDateX = 'start';
+        series1.dataFields.dateX = 'end';
+        series1.dataFields.categoryY = 'category';
+        series1.columns.template.propertyFields.fill = 'color'; // get color from data
+        series1.columns.template.propertyFields.stroke = 'color';
+        series1.columns.template.strokeOpacity = 1;
+        this.chart.scrollbarX = new _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_3__["Scrollbar"]();
     };
     PatternsOfUseComponent.prototype.ngOnDestroy = function () {
+        var _this = this;
+        // Clean up chart when the component is removed
+        this.browserOnly(function () {
+            if (_this.chart) {
+                _this.chart.dispose();
+            }
+        });
     };
     PatternsOfUseComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2642,7 +2813,8 @@ var PatternsOfUseComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./patterns-of-use.component.html */ "./src/app/components/resources/patterns-of-use/patterns-of-use.component.html"),
             styles: [__webpack_require__(/*! ./patterns-of-use.component.css */ "./src/app/components/resources/patterns-of-use/patterns-of-use.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"])),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [Object, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
     ], PatternsOfUseComponent);
     return PatternsOfUseComponent;
 }());
