@@ -2611,7 +2611,7 @@ module.exports = "#chartdiv {\n  width: 100%;\n  height: 500px;\n}\n\n/*# source
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"chartdiv\"></div>\n\n"
+module.exports = "<div id=\"pouChartDiv\"></div>\n\n"
 
 /***/ }),
 
@@ -2650,7 +2650,7 @@ var PatternsOfUseComponent = /** @class */ (function () {
     };
     // tslint:disable-next-line:use-life-cycle-interface
     PatternsOfUseComponent.prototype.ngAfterViewInit = function () {
-        this.chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_3__["create"]('chartdiv', _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_4__["XYChart"]);
+        this.chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_3__["create"]('pouChartDiv', _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_4__["XYChart"]);
         this.chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
         this.chart.paddingRight = 30;
         this.chart.dateFormatter.inputDateFormat = 'yyyy-MM-dd HH:mm';
