@@ -1727,11 +1727,12 @@ __webpack_require__.r(__webpack_exports__);
  * Initializes the SMART client and redirects to the Home page.
  */
 var RedirectComponent = /** @class */ (function () {
-    function RedirectComponent(_router, _authService, _globalService) {
+    function RedirectComponent(_router, _authService, _globalService, _route) {
         var _this = this;
         this._router = _router;
         this._authService = _authService;
         this._globalService = _globalService;
+        this._route = _route;
         /**
          * Callback method when an error occurs during the OAuth2.0 token workflow
          */
@@ -1742,7 +1743,7 @@ var RedirectComponent = /** @class */ (function () {
          * Callback method once the SMART client has been initialized after the OAuth2.0 token workflow.
          */
         this.oauth2ReadyCallback = function (smartClient) {
-            _this._authService.login();
+            _this._authService.login(_this._route.snapshot.paramMap.get('uniqueName'));
         };
     }
     RedirectComponent.prototype.ngOnInit = function () {
@@ -1757,7 +1758,8 @@ var RedirectComponent = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _services__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
-            _services__WEBPACK_IMPORTED_MODULE_3__["GlobalService"]])
+            _services__WEBPACK_IMPORTED_MODULE_3__["GlobalService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], RedirectComponent);
     return RedirectComponent;
 }());
@@ -1971,22 +1973,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_smart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/smart.service */ "./src/app/services/smart.service.ts");
-/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/internal/Subject */ "./node_modules/rxjs/internal/Subject.js");
-/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_smart_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/smart.service */ "./src/app/services/smart.service.ts");
+/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/internal/Subject */ "./node_modules/rxjs/internal/Subject.js");
+/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../services */ "./src/app/services/index.ts");
+
+
 
 
 
 
 
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent(_zone, _smartService) {
+    function DashboardComponent(_zone, _smartService, _route, _clientAppService) {
         this._zone = _zone;
         this._smartService = _smartService;
+        this._route = _route;
+        this._clientAppService = _clientAppService;
         this.showingPou = false;
         this.showingTData = true;
-        this._unsubscribe = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.defaultPage = 'tdata';
+        this._unsubscribe = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
     }
     /**
      * Fetch the Patient Resource based on the Patient in Context
@@ -1994,7 +2003,7 @@ var DashboardComponent = /** @class */ (function () {
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._smartService.getClient()
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribe))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(this._unsubscribe))
             .subscribe(function (smartClient) {
             var api = smartClient.api;
             var searchParams = {
@@ -2012,6 +2021,18 @@ var DashboardComponent = /** @class */ (function () {
                     _this.error = error;
                 });
             });
+        });
+        this._clientAppService.getAllClientApps()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(this._unsubscribe))
+            .subscribe(function (clientApps) {
+            var uniqueName = _this._route.snapshot.paramMap.get('uniqueName');
+            var clientApp = clientApps.find(function (q) { return q.uniqueName === uniqueName; });
+            if (clientApp.dashboardLaunch === 'pou') {
+                _this.toggleOnPOU();
+            }
+            else {
+                _this.toggleOnTData();
+            }
         });
     };
     DashboardComponent.prototype.toggleOnPOU = function () {
@@ -2032,7 +2053,10 @@ var DashboardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/components/resources/dashboard/dashboard.component.html"),
             styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/components/resources/dashboard/dashboard.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _services_smart_service__WEBPACK_IMPORTED_MODULE_2__["SmartService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"],
+            _services_smart_service__WEBPACK_IMPORTED_MODULE_3__["SmartService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _services__WEBPACK_IMPORTED_MODULE_6__["ClientAppService"]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -2847,7 +2871,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var routes = [
     { path: 'resources/Patient', component: ___WEBPACK_IMPORTED_MODULE_4__["PatientComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGaurd"]] },
-    { path: 'resources/dashboard', component: ___WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGaurd"]] },
+    { path: 'resources/dashboard/:uniqueName', component: ___WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGaurd"]] },
     { path: 'resources/:resourceType', component: ___WEBPACK_IMPORTED_MODULE_4__["ResourcesTableContainerComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGaurd"]] },
     { path: 'resources/:resourceType/:id', component: ___WEBPACK_IMPORTED_MODULE_4__["EditResourceComponent"], canActivate: [_misc_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGaurd"]] },
 ];
@@ -3746,7 +3770,8 @@ var CLIENT_APPS = [
         scopes: 'launch/patient,offline_access,openid,patient/*.*,profile,fhirUser',
         standalonePatient: true,
         ehrLaunch: true,
-        server: 'logica'
+        server: 'logica',
+        dashboardLaunch: 'tdata'
     },
     {
         name: 'Shaun - Logica',
@@ -3757,7 +3782,8 @@ var CLIENT_APPS = [
         scopes: 'launch/patient,offline_access,openid,patient/*.*,profile,fhirUser',
         standalonePatient: true,
         ehrLaunch: true,
-        server: 'logica'
+        server: 'logica',
+        dashboardLaunch: 'pou'
     },
     {
         name: 'Space Delimited Scope - Logica',
@@ -3768,7 +3794,8 @@ var CLIENT_APPS = [
         scopes: 'launch/patient fhirUser openid patient/*.* offline_access',
         standalonePatient: true,
         ehrLaunch: true,
-        server: 'logica'
+        server: 'logica',
+        dashboardLaunch: 'pou'
     }
 ];
 
@@ -5946,9 +5973,9 @@ var AuthService = /** @class */ (function () {
     /**
      * Flags that a user has logged in to the application
      */
-    AuthService.prototype.login = function () {
+    AuthService.prototype.login = function (uniqueName) {
         this.loggedIn.next(true);
-        this._router.navigate(['/resources/dashboard']);
+        this._router.navigate(['/resources/dashboard/' + uniqueName]);
     };
     Object.defineProperty(AuthService.prototype, "isLoggedIn", {
         /**
