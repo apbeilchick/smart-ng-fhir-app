@@ -1955,7 +1955,7 @@ module.exports = "button {\n  background: cornflowerblue;\n  border-radius: 5px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-patient-demographics></app-patient-demographics>\n<button (click)=\"toggleOnTData()\" [class.isActive]=\"showingTData\">Therapy Data</button>\n<button (click)=\"toggleOnPOU()\"  [class.isActive]=\"showingPou\">Patterns of Use</button>\n<app-therapy-data *ngIf=\"showingTData\"></app-therapy-data>\n<app-patterns-of-use *ngIf=\"showingPou\"></app-patterns-of-use>\n"
+module.exports = "<app-patient-demographics></app-patient-demographics>\n<button (click)=\"toggleOnTData()\" [class.isActive]=\"showingTData\">Therapy Data</button>\n<button (click)=\"toggleOnPOU()\"  [class.isActive]=\"showingPou\">Patterns of Use</button>\n<app-therapy-data [hidden]=\"!showingTData\"></app-therapy-data>\n<app-patterns-of-use [hidden]=\"!showingPou\"></app-patterns-of-use>\n"
 
 /***/ }),
 
