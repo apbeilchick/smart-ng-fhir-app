@@ -1994,7 +1994,6 @@ var DashboardComponent = /** @class */ (function () {
         this._clientAppService = _clientAppService;
         this.showingPou = false;
         this.showingTData = true;
-        this.defaultPage = 'tdata';
         this._unsubscribe = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
     }
     /**
@@ -2007,7 +2006,7 @@ var DashboardComponent = /** @class */ (function () {
             .subscribe(function (clientApps) {
             var uniqueName = _this._route.snapshot.paramMap.get('uniqueName');
             var clientApp = clientApps.find(function (q) { return q.uniqueName === uniqueName; });
-            if (clientApp.dashboardLaunch === 'pou') {
+            if (clientApp.dashboardDefaultLaunch === 'pou') {
                 _this.toggleOnPOU();
             }
             else {
@@ -3771,7 +3770,7 @@ var CLIENT_APPS = [
         standalonePatient: true,
         ehrLaunch: true,
         server: 'logica',
-        dashboardLaunch: 'tdata'
+        dashboardDefaultLaunch: 'tdata'
     },
     {
         name: 'Shaun - Logica',
@@ -3783,7 +3782,7 @@ var CLIENT_APPS = [
         standalonePatient: true,
         ehrLaunch: true,
         server: 'logica',
-        dashboardLaunch: 'pou'
+        dashboardDefaultLaunch: 'pou'
     },
     {
         name: 'Space Delimited Scope - Logica',
@@ -3794,8 +3793,7 @@ var CLIENT_APPS = [
         scopes: 'launch/patient fhirUser openid patient/*.* offline_access',
         standalonePatient: true,
         ehrLaunch: true,
-        server: 'logica',
-        dashboardLaunch: 'pou'
+        server: 'logica'
     }
 ];
 
