@@ -3907,7 +3907,7 @@ const CLIENT_APPS = [
     },
     {
         name: 'Adam - Logica',
-        uniqueName: 'adam',
+        uniqueName: 'krupa',
         clientId: 'a0d4ebd4-f817-4eac-92cc-09574ca86ef9',
         redirectUri: 'https://apbeilchick.github.io/smart-ng-fhir-app/redirect/adam',
         launchUrl: 'https://apbeilchick.github.io/smart-ng-fhir-app/launch/adam',
@@ -3920,7 +3920,7 @@ const CLIENT_APPS = [
     {
         name: 'Shaun - Logica',
         uniqueName: 'shaun',
-        clientId: 'fa0f6b3b-d2a5-4cdf-9e58-0c82250f5280',
+        clientId: 'ad6400b1-b0c8-4e6d-a206-11d08c0a9f27',
         redirectUri: 'https://apbeilchick.github.io/smart-ng-fhir-app/redirect/shaun',
         launchUrl: 'https://apbeilchick.github.io/smart-ng-fhir-app/launch/shaun',
         scopes: 'launch/patient,offline_access,openid,patient/*.*,profile,fhirUser',
